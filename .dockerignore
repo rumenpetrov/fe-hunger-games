@@ -1,0 +1,9 @@
+Containerfile*
+README.md
+dist
+build
+bin
+node_modules
+.dockerignore
+.npmrc
+.env*
