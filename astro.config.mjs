@@ -5,6 +5,11 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-	site: 'https://example.com',
-	integrations: [mdx(), sitemap()],
+  site: 'https://rumenpetrov.github.io',
+  base: '/fe-hunger-games',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
+  integrations: [mdx(), sitemap()],
 });
