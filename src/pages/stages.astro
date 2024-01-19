@@ -1,0 +1,53 @@
+---
+import BaseHead from '@src/components/BaseHead.astro';
+import Header from '@src/components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+    <style>
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header title={SITE_TITLE} />
+
+    <main>
+      <div class="title">
+        <h1>Stages</h1>
+
+        <hr />
+      </div>
+
+      <h4>1. New challenge is available</h4>
+
+      <p>Participants have time to review the requirements and to prepare their code.</p>
+
+      <h4>2. Contribution</h4>
+
+      <p>Participants submit their work to the project before the meeting by following the contribution guide.</p>
+
+      <h4>3. Code review</h4>
+
+      <p>During the meeting everybody present their work. There is a discussion about the topic of the challenge and the submitted code is validated against the defined requirements, best practices and the <a href={`${import.meta.env.BASE_URL}principles/`}>principles</a> the group agreed to.</p>
+
+      <h4>4. Vote</h4>
+
+      <p>After the review the team is voting, anonymously, and the person with the most votes is the winner of the challenge.</p>
+
+      <h4>5. New challenge is revealed and we get back to the beginning</h4>
+    </main>
+  </body>
+</html>

@@ -6,7 +6,6 @@ import FormattedDate from '@src/components/FormattedDate.astro';
 
 type Props = CollectionEntry<'challenges'>['data'];
 
-const total = 8;
 const { index, isDraft, title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
 ---
@@ -66,10 +65,6 @@ const { index, isDraft, title, description, pubDate, updatedDate, heroImage } = 
 
         <div class="prose">
           <div class="title">
-            <p>{isDraft && `[Draft]`}</p>
-
-            <h1>{index} of {total} {title}</h1>
-
             <div class="date">
               <FormattedDate date={pubDate} />
 
@@ -79,11 +74,11 @@ const { index, isDraft, title, description, pubDate, updatedDate, heroImage } = 
                 </div>
               )}
             </div>
+
+            <h1>{isDraft && `[Draft]`} {index}. {title}</h1>
+
+            <hr />
           </div>
-
-          <p>{description}</p>
-
-          <hr />
 
           <slot />
         </div>

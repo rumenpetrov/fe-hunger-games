@@ -5,9 +5,9 @@ Community-driven game focusing on front-end development, where participants coll
 The project is in active development phase.
 
 ## Requirements
-node 18
-npm 9.8.1
-podman 4+
+* node 18
+* npm 9.8.1
+* podman 4+
 
 ## Initial setup (for local development)
 1. Make all scripts excutable and run the setup-env script which will create the app's podman image
