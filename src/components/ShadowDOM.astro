@@ -1,0 +1,35 @@
+---
+const { content } = Astro.props;
+---
+
+<template id="template">
+  {content}
+</template>
+
+<div id="shadow"></div>
+
+<script>
+  // const element = document.querySelector('#shadow');
+
+  // if (element) {
+    // console.log('element', element)
+
+    // const span = document.createElement("span");
+    // span.textContent = "I'm in the shadow DOM!!!!!";
+
+    // const contentNode = element.outerHTML;
+    // console.log('contentNode', contentNode)
+
+    // const template = document.createElement("template");
+    // template.innerHTML = contentNode;
+
+    // const template = document.querySelector('#template');
+    // console.log('template', template.content)
+
+    // const shadow = element.attachShadow({ mode: 'closed' });
+    // console.log('shadow', shadow)
+
+    // shadow.appendChild(template.content.cloneNode(true));
+    // shadow.appendChild(span);
+  // }
+</script>

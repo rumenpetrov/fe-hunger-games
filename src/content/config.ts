@@ -1,9 +1,11 @@
 import { defineCollection, z } from 'astro:content';
 
-const blog = defineCollection({
+const challenges = defineCollection({
   type: 'content',
   // Type-check frontmatter using a schema
   schema: z.object({
+    index: z.number(),
+    isDraft: z.boolean(),
     title: z.string(),
     description: z.string(),
     // Transform string to Date object
@@ -13,4 +15,4 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+export const collections = { challenges };
