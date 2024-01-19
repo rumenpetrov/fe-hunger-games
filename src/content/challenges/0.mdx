@@ -23,14 +23,19 @@ heroImage: '/blog-placeholder-3.jpg'
 ### Winner
 
 ### Contributions
-import HTMLContributionMyName from '@src/challenge-contributions/0/my-name.html?raw';
-import HTMLContributionMe from '@src/challenge-contributions/0/me.html?raw';
-export const iframeStyles = { 
-  width: '100%', 
-  height: '400px', 
+
+import HTMLContributionMyName from '/challenge-contributions/0/my-name.html?url&raw';
+import HTMLContributionMe from '/challenge-contributions/0/me.html?url&raw';
+
+export const iframeStyles = {
+  width: '100%',
+  height: '400px',
   border: '2px solid coral',
   borderRadius: '8px',
 };
 
-<iframe srcdoc={HTMLContributionMe} style={iframeStyles}></iframe>
 <iframe srcdoc={HTMLContributionMyName} style={iframeStyles}></iframe>
+<a href="/fe-hunger-games/challenge-contributions/0/my-name.html">Go to my-name.html</a>
+
+<iframe srcdoc={HTMLContributionMe} style={iframeStyles}></iframe>
+<a href="/fe-hunger-games/challenge-contributions/0/me.html">Go to me.html</a>
