@@ -4,6 +4,38 @@ Community-driven game focusing on front-end development, where participants coll
 ## WIP
 The project is in active development phase.
 
+## Requirements
+node 18
+npm 9.8.1
+podman 4+
+
+## Initial setup (for local development)
+1. Make all scripts excutable and run the setup-env script which will create the app's podman image
+```bash
+$ chmod +x ./bin/*
+$ ./bin/setup-env.sh
+```
+
+2. Install dependencies
+```bash
+$ ./bin/run-command.sh npm i
+```
+
+3. Run the app in dev mode (make sure port 4321 is free on your machine)
+```bash
+$ ./bin/start.sh
+```
+
+## Build (for production)
+```bash
+$ ./bin/run-command.sh npm run build
+```
+
+if you want to preview the changes (make sure port 4322 is free on your machine)
+```bash
+$ ./bin/run-command.sh npm run preview
+```
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
