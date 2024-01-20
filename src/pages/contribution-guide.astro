@@ -1,0 +1,59 @@
+---
+import BaseHead from '@src/components/BaseHead.astro';
+import Header from '@src/components/Header.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+
+    <style>
+      .title {
+        margin-bottom: 1em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+      }
+      .title h1 {
+        margin: 0 0 0.5em 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header title={SITE_TITLE} />
+
+    <main>
+      <div class="title">
+        <h1>Contribution guide</h1>
+
+        <hr />
+      </div>
+
+      <h3>How to participate in a challenge?</h3>
+
+      <ol>
+        <li>Create HTML file with the code you want to submit for the challenge.</li>
+        <li>Use the first letter of your first name in combination with your last name for the name of the HTML file.</li>
+        <li>Add your file to the folder which represents the challenge you want to participate in inside <code>/public/challenge-contributions</code>. You could use any of the methods described below.</li>
+      </ol>
+
+      <h3>How to add my files to the project?</h3>
+
+      <h5>Option 1: Request access to the project</h5>
+
+      <p>You could requires access writes to the project then you could use the GitHub UI to upload a HTML file. Alternatively you clone the project locally, create branch and submit your files by opening a PR to master.</p>
+
+      <h5>Option 2: Fork it</h5>
+
+      <p>You could fork the project and then open PR to the upstream project. Here are couple links you might find useful:</p>
+
+      <p>
+        <li><a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo">Fork a repo</a></li>
+        <li><a href="https://www.youtube.com/watch?v=8lGpZkjnkt4">GitHub Pull Request in 100 Seconds - Git a FREE sticker</a></li>
+        <li><a href="https://www.youtube.com/watch?v=8A4TsoXJOs8">How to make a pull request on an open source project</a></li>
+      </p>
+    </main>
+  </body>
+</html>

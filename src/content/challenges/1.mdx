@@ -1,12 +1,17 @@
 ---
 index: 1
-isDraft: true
+isDraft: false
 title: 'Article with unique text links'
 description: ''
 pubDate: 'Jan 19 2024'
 updatedDate: 'Jan 20 2024'
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-1.jpg'
 ---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import DocumentPreview from '@src/components/DocumentPreview.astro';
+
+import templateDocument from '/challenge-contributions/1/template.html?url&raw';
 
 ## Requirements
 * Create simple article UI for a blog page
@@ -21,7 +26,7 @@ heroImage: '/blog-placeholder-2.jpg'
 * Include a photo and a figure
 * Include at least 3 links
 * Be mindful about the spacing around elements
-* **[Special]** Create custom styles for the link by using the text decoration CSS properties.
+* <Special /> Create custom styles for the link by using the text decoration CSS properties.
 
 #### Refs
 * [Text decoration thinkness](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness)
@@ -30,6 +35,9 @@ heroImage: '/blog-placeholder-2.jpg'
 * [Typescale generator](https://typescale.com/)
 * [Visual hierarchy](https://www.justinmind.com/ui-design/visual-hierarchy)
 
-### Winner
+<Winner>
+  <em>TBA</em>
+</Winner>
 
 ### Contributions
+<DocumentPreview content={templateDocument} fileName="template.html" />

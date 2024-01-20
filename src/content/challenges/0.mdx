@@ -2,40 +2,35 @@
 index: 0
 isDraft: true
 title: 'Playground'
-description: 'This is the template for the rest of the challenges'
+description: 'This is not a real challenge, just a playground to test features.'
 pubDate: 'Jan 1 2024'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/blog-placeholder-0.jpg'
 ---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import DocumentPreview from '@src/components/DocumentPreview.astro';
+
+import templateDocument from '/challenge-contributions/0/template.html?url&raw';
+import rpetrovDocument from '/challenge-contributions/0/rpetrov.html?url&raw';
+
 ## Requirements
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 - Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat.
 - Netus et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim.
 - Habitasse platea dictumst quisque sagittis.
-- **[Special]** Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
+- <Special /> Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
 
 ### Preview
-![blog placeholder](/fe-hunger-games/blog-placeholder-about.jpg)
+![blog placeholder](/fe-hunger-games/blog-placeholder-1.jpg)
 
 #### Refs
 * [Google](https://www.google.com)
 * [Exmaple](https://www.example.com)
 
-### Winner
+<Winner>
+  <DocumentPreview content={rpetrovDocument} fileName="rpetrov.html" />
+</Winner>
 
 ### Contributions
-
-import HTMLContributionMyName from '/challenge-contributions/0/my-name.html?url&raw';
-import HTMLContributionMe from '/challenge-contributions/0/me.html?url&raw';
-
-export const iframeStyles = {
-  width: '100%',
-  height: '400px',
-  border: '2px solid coral',
-  borderRadius: '8px',
-};
-
-<iframe srcdoc={HTMLContributionMyName} style={iframeStyles}></iframe>
-<a href="/fe-hunger-games/challenge-contributions/0/my-name.html">Go to my-name.html</a>
-
-<iframe srcdoc={HTMLContributionMe} style={iframeStyles}></iframe>
-<a href="/fe-hunger-games/challenge-contributions/0/me.html">Go to me.html</a>
+<DocumentPreview content={templateDocument} fileName="template.html" />
+<DocumentPreview content={rpetrovDocument} fileName="rpetrov.html" />
