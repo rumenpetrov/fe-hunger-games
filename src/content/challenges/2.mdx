@@ -1,17 +1,20 @@
 ---
 index: 2
-isDraft: false
+isDraft: true
 title: 'Use the native Dialog element'
 description: ''
 pubDate: 'Jan 20 2024'
-updatedDate: 'Feb 7 2024'
+updatedDate: 'Feb 12 2024'
 heroImage: '/blog-placeholder-2.jpg'
 ---
 import Special from '@src/components/Special.astro';
 import Winner from '@src/components/Winner.astro';
 import DocumentPreview from '@src/components/DocumentPreview.astro';
 
-import templateDocument from '/challenge-contributions/2/template.html?url&raw';
+import asavovDocument from '/challenge-contributions/2/asavov.html?url&raw';
+import gdespolovDocument from '/challenge-contributions/2/gdespolov.html?url&raw';
+import smarkovDocument from '/challenge-contributions/2/smarkov.html?url&raw';
+import rpetrovDocument from '/challenge-contributions/2/rpetrov.html?url&raw';
 
 ## Requirements
 * Create a button which opens a modal
@@ -20,19 +23,26 @@ import templateDocument from '/challenge-contributions/2/template.html?url&raw';
 * Add 80% dark backdrop
 * <Special /> Make the `ESC` key close the dialog
 
-### Preview
+### Design preview
 ![blog placeholder](/fe-hunger-games/challenge-resources/challenge0-design.png)
 
 #### Resources
+* [Template](/fe-hunger-games/challenge-contributions/2/template.html)
 * [Close icon](/fe-hunger-games/challenge-resources/close.svg)
 
 #### Refs
 * [Dialg MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
 * [Dialog](https://web.dev/learn/html/dialog)
 
+### Contributions
+<DocumentPreview content={asavovDocument} index="2" fileName="asavov.html" />
+<DocumentPreview content={gdespolovDocument} index="2" fileName="gdespolov.html" />
+<DocumentPreview content={smarkovDocument} index="2" fileName="smarkov.html" />
+<DocumentPreview content={rpetrovDocument} index="2" fileName="rpetrov.html" />
+
+### Discussion topics
+TBA
+
 <Winner>
   <em>TBA</em>
 </Winner>
-
-### Contributions
-<DocumentPreview content={templateDocument} fileName="template.html" />

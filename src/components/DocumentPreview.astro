@@ -1,11 +1,11 @@
 ---
-const { content, fileName } = Astro.props;
+const { index, content, fileName } = Astro.props;
 ---
 <div class="root">
   <iframe srcdoc={content} class="preview"></iframe>
 
   <div class="actions">
-    <a href="/fe-hunger-games/challenge-contributions/1/template.html">Go to {fileName}</a>
+    <a href={`/fe-hunger-games/challenge-contributions/${index}/${fileName}`}>Go to {fileName}</a>
   </div>
 </div>
 

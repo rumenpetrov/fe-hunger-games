@@ -18,6 +18,10 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
       .title h1 {
         margin: 0 0 0.5em 0;
       }
+
+      section {
+        padding: 30px 0;
+      }
     </style>
   </head>
 
@@ -31,23 +35,45 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
         <hr />
       </div>
 
-      <h4>1. New challenge is available</h4>
+      <section>
+        <h4>1. New challenge is available</h4>
 
-      <p>Participants have time to review the requirements and to prepare their code.</p>
+        <p>Participants have time to review the requirements and to prepare their code.</p>
 
-      <h4>2. Contribution</h4>
+        <h4>2. Contribution</h4>
 
-      <p>Participants submit their work to the project before the meeting by following the <a href={`${import.meta.env.BASE_URL}contribution-guide/`}>contribution guide</a>.</p>
+        <p>Participants submit their work to the project <strong>at least 2 days</strong> before the meeting by following the <a href={`${import.meta.env.BASE_URL}contribution-guide/`}>contribution guide</a>.</p>
 
-      <h4>3. Code review</h4>
+        <h4>3. Code review</h4>
 
-      <p>During the meeting everybody present their work. There is a discussion about the topic of the challenge and the submitted code is validated against the defined requirements, best practices and the <a href={`${import.meta.env.BASE_URL}principles/`}>principles</a> the group agreed to.</p>
+        <p>Before the meeting everybody review the code every other participant submitted. He takes notes of one or two things which made strong impression to him and wants to discuss with the rest.</p>
 
-      <h4>4. Vote</h4>
+        <p>During the meeting everybody shares his notes/topics and the group is discussing each one. There could be a general discussion about the topic of the challenge as well.</p>
 
-      <p>After the review the team is voting, anonymously, and the person with the most votes is the winner of the challenge.</p>
+        <p>The submitted code is assessed against the defined requirements, best practices and the <a href={`${import.meta.env.BASE_URL}principles/`}>principles</a> the group agreed to.</p>
 
-      <h4>5. New challenge is revealed and we get back to the beginning</h4>
+        <h4>4. Vote</h4>
+
+        <p>After the review the team is voting, anonymously, for two things.</p>
+
+        <ul>
+          <li>Win - Which of the contributions, according to the person who votes is as close as possible to the best implementation of the task and covers most of the <a href={`${import.meta.env.BASE_URL}principles/`}>principles</a> the group agreed on.</li>
+
+          <li>MVP - Who was most active, provided new knowledge, give solid and clear arguments or logical reasoning during the discussion.</li>
+        </ul>
+
+        <h4>5. New challenge is revealed and we get back to the beginning</h4>
+      </section>
+
+      <section>
+        <h2>Points</h2>
+
+        <p>The owner of the code which win a challenge collects <strong>3 points</strong>.</p>
+
+        <p>If you are chosen as MVP, this grand you <strong>1 point</strong>.</p>
+
+        <p>Contributors could suggest challenge to the organizer, if they want. In case their suggestion is accepted, they will be rewarded with <strong>2 points</strong> for their help.</p>
+      </section>
     </main>
   </body>
 </html>
