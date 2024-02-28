@@ -1,11 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 1</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 1 - GD</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      h1 {
+        font-size: 47.78px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.022em;
+        font-family: avenir, sans-serif;
+      }
+      h2 {
+        font-size: 39.81px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.022em;
+        font-family: avenir, sans-serif;
+      }
+      h3 {
+        font-size: 33.18px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.022em;
+        font-family: avenir, sans-serif;
+      }
+      h4 {
+        font-size: 27.65px;
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.022em;
+        font-family: avenir, sans-serif;
+      }
+      p {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 25.6px;
+        font-family: avenir, sans-serif;
+      }
+      blockquote {
+        margin: 0;
+        padding: 10px 20px;
+        background-color: #f9f9f9;
+        border-left: 4px solid #cccccc;
+      }
+      figure {
+        margin: 0;
+        text-align: center;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      a {
+        font-size: 16px;
+        text-decoration: none;
+        color: #7bf2da;
+      }
+      a:hover {
+        text-decoration: pink wavy 1px underline;
+      }
+      .redLink:hover {
+        text-decoration: red wavy 2px underline;
+      }
+      .greenLink:hover {
+        text-decoration: green wavy 3px underline;
+      }
+      .blueLink:hover {
+        text-decoration: blue wavy 4px underline;
+      }
+      .container {
+        max-width: 800px;
+        font-family: "Roboto";
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .noPadding {
+        padding: 0;
+      }
+      .noMargin {
+        margin: 0;
+      }
+      .headingMargin {
+        margin-top: 2.25rem;
+        margin-bottom: 1rem;
+      }
+      .paragraphMargin {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .listMargin {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .noMarginBottom {
+        margin-bottom: 0;
+      }
+      .figureMargin {
+        margin-top: 2.25rem;
+        margin-bottom: 2.25rem;
+      }
+      .secondaryP {
+        color: #6b6b6b;
+      }
+      .userContainer {
+        display: flex;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+      }
+      .userInitials {
+        height: 40px;
+        width: 40px;
+        background-color: #7bf2da;
+        border-radius: 50%;
+        line-height: 40px;
+        font-size: 16px;
+        text-align: center;
+        color: #000000;
+        font-family: avenir, sans-serif;
+        font-weight: 700;
+        margin-right: 1rem;
+      }
+      .userInfo {
+        display: flex;
+      }
+      .userName {
+        font-family: avenir, sans-serif;
+        line-height: 20px;
+      }
+      .userInfoSeparator {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        line-height: 20px;
+      }
+      .userFollow {
+        line-height: 20px;
+      }
+      .userContainerLink {
+        color: #e33d43;
+      }
+      .userContainerLink:hover {
+        text-decoration: none;
+      }
+      .articleInfo {
+        font-family: avenir, sans-serif;
+        line-height: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <article>
+        <header>
+          <h1 class="noMargin">Article with Unique Text Links</h1>
+
+          <p class="noMargin secondaryP">
+            <small> Date: Mar 12, 2024 </small>
+          </p>
+
+          <div class="userContainer">
+            <div class="userInitials">GD</div>
+
+            <div>
+              <div class="userInfo">
+                <p class="noMargin userName">
+                  <small> Georgi Despolov </small>
+                </p>
+                <p class="noMargin userInfoSeparator">·</p>
+                <p class="noMargin userFollow">
+                  <a
+                    class="userContainerLink"
+                    href="http://placekitten.com/1900/1900"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <small> Follow </small>
+                  </a>
+                </p>
+              </div>
+              <p class="noMargin articleInfo">
+                <small>
+                  Published in
+                  <a
+                    class="userContainerLink"
+                    href="https://rumenpetrov.github.io/fe-hunger-games/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <small> FE Hunger games </small>
+                  </a>
+                  on Feb 27, 2024
+                </small>
+              </p>
+            </div>
+          </div>
+        </header>
+
+        <figure class="figureMargin">
+          <img src="http://placekitten.com/400/400" alt="Place kitten" />
+          <figcaption>Figure: A kitten image</figcaption>
+        </figure>
+
+        <h2 class="headingMargin">Heading 2</h2>
+
+        <p class="paragraphMargin">
+          This is a <strong> strong</strong> article showing some em's with
+          <em>unique text links</em> and some more html.
+        </p>
+
+        <p class="paragraphMargin">
+          This is a second paragraph and has some
+          <strong>strong text</strong> and some <em>emphasized text</em>. And
+          ofcourse combined <strong><em>together</em></strong
+          >! Here we also have some more text, lorem ipsum dolor sit amet.
+        </p>
+
+        <h3 class="headingMargin">Heading 3</h3>
+
+        <p class="paragraphMargin">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          <strong>sed do eiusmod tempor</strong> incididunt ut labore et dolore
+          magna aliqua.
+        </p>
+
+        <ul class="listMargin">
+          <li>Unordered List Item 1</li>
+          <li>Unordered List Item 2</li>
+          <li>Unordered List Item 3</li>
+        </ul>
+
+        <h4 class="headingMargin">Heading 4</h4>
+
+        <p class="paragraphMargin">
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum.
+        </p>
+
+        <ol class="listMargin" type="1">
+          <li>Ordered List Item 1</li>
+          <li>Ordered List Item 2</li>
+          <li>Ordered List Item 3</li>
+        </ol>
+
+        <blockquote class="paragraphMargin">
+          <p>This here is a very important quote!</p>
+        </blockquote>
+
+        <p class="paragraphMargin">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+          ab illo inventore veritatis et quasi architecto beatae vitae dicta
+          sunt explicabo.
+        </p>
+
+        <p class="paragraphMargin">
+          Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
+          suscipit laboriosam, nisi ut aliquid ex ea
+          <strong>commodi consequatur</strong>?
+        </p>
+
+        <p class="paragraphMargin noMarginBottom">
+          Here are some
+          <a
+            href="http://placekitten.com/1400/1400"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            unique text links
+          </a>
+          for further satisfaction:
+        </p>
+
+        <ul class="noMargin">
+          <li>
+            <a
+              class="redLink"
+              href="http://placekitten.com/1100/1100"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Link 1
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="greenLink"
+              href="http://placekitten.com/1200/1200"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Link 2
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="blueLink"
+              href="http://placekitten.com/1300/1300"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Link 3
+            </a>
+          </li>
+        </ul>
+
+        <p class="paragraphMargin">
+          And lets wrap it up with this paragraph here.
+        </p>
+      </article>
+    </div>
+  </body>
 </html>
