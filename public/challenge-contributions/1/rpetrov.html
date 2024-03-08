@@ -1,11 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 1</title>
+  <style>
+    * {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+
+    :root {
+      font-family: sans-serif;
+      color: #333;
+
+      --palette-accent: salmon;
+      --spacing-step: 8px;
+    }
+
+    .wrapper {
+      padding: 0 var(--spacing-step);
+    }
+
+    main {
+      padding: calc(var(--spacing-step) * 4) 0;
+    }
+
+    @media (min-width: 820px) {
+      .wrapper {
+        width: 800px;
+        padding: 0;
+        margin: 0 auto;
+      }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      padding: calc(var(--spacing-step) * 2) 0 var(--spacing-step);
+      color: #111;
+    }
+
+    h1 {
+      font-size: 61.04px;
+      line-height: 1;
+    }
+
+    h2 {
+      font-size: 48.83px;
+      line-height: 1.375;
+    }
+
+    h3 {
+      font-size: 39.06px;
+      line-height: 1.375;
+    }
+
+    h4 {
+      font-size: 31.25px;
+      line-height: 1.375;
+    }
+
+    h5 {
+      font-size: 25px;
+      line-height: 1.5;
+    }
+
+    h6 {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+
+    p {
+      padding: var(--spacing-step) 0;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    small {
+      font-size: 12.8px;
+      line-height: 1.5;
+    }
+
+    blockquote {
+      margin: var(--spacing-step) 0;
+      border-left: 4px solid #000;
+      padding: 0 var(--spacing-step) 0 calc(var(--spacing-step) * 2);
+    }
+
+    blockquote p:first-child {
+      padding-top: 0;
+    }
+
+    blockquote p:last-child {
+      padding-bottom: 0;
+    }
+
+    ol,
+    ul {
+      list-style-position: inside;
+      margin-left: calc(var(--spacing-step) * 2);
+    }
+
+    li {
+      padding: calc(var(--spacing-step) / 2) 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-color: darksalmon;
+      font-weight: 500;
+      transition: color 0.3s ease-in-out;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration-color: var(--palette-accent);
+      text-underline-offset: 1px;
+      text-decoration-style: double;
+    }
+
+    picture {
+      display: flex;
+      justify-content: center;
+      padding: var(--spacing-step) 0;
+    }
+
+    figure {
+      border: 1px solid var(--palette-accent);
+      display: inline-flex;
+      flex-flow: column;
+      padding: calc(var(--spacing-step) / 2);
+      margin: var(--spacing-step) 0;
+      max-width: 100%;
+    }
+
+    figcaption {
+      background-color: #333;
+      color: #fff;
+      font: italic smaller sans-serif;
+      padding: 3px;
+      text-align: center;
+    }
+
+    img {
+      display: block;
+      vertical-align: top;
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <main>
+    <div class="wrapper">
+      <article>
+        <h1>h1 - Lorem, ipsum dolor.</h1>
+
+        <p><small>Created: <time datetime="2024-08-03">8th March 2024</time>.</small></p>
+
+        <picture>
+          <source
+            srcset="https://placehold.co/400x600"
+            media="(orientation: portrait)"
+          >
+
+          <img src="https://placehold.co/900x300" alt="Picture example preview" >
+        </picture>
+
+        <p><em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</em></p>
+
+        <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing elit</strong>. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos <a href="https://example.com">fugit nylla maipores</a> labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+        <h2>h2 - Lorem ipsum, dolor sit.</h2>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum <em>nulla recusandae delectus ullam</em> voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla <em>recusandae delectus</em> ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+
+        <ul>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum <a href="https://example.com">nulla</a> recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+        </ul>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum <strong>nulla recusandae delectus ullam</strong> voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+
+        <h3>h3 - Lorem ipsum, dolor sit.</h3>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+
+        <figure>
+          <img src="https://placehold.co/300x300" alt="Figure example preview" >
+
+          <figcaption>Lorem ipsum dolor</figcaption>
+        </figure>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</p>
+
+        <ol>
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. <a href="https://example.com">Velit exercitationem</a>, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+
+          <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla recusandae delectus ullam voluptatibus quidem a. Magnam consequuntur et, eos fugit nulla maiores labore ex tempora excepturi illum deserunt porro vitae quia non. Qui quos excepturi optio, distinctio nihil non minima!</li>
+        </ol>
+
+        <h4>h4 - Lorem ipsum, dolor sit.</h4>
+
+        <blockquote cite="https://www.lipsum.com/">
+          <p>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi, sint. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minus, magni."</p>
+
+          <footer>—John Doe, <cite>www.lipsum.com</cite></footer>
+        </blockquote>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit exercitationem, sapiente doloremque magnam mollitia eos laborum neque earum nulla <a href="https://example.com">recusandae delectus</a> ullam voluptatibus quidem a.</p>
+      </article>
+    </div>
+  </main>
 </body>
 </html>
