@@ -1,13 +1,10 @@
 # FE hunger games
 Community-driven game focusing on front-end development, where participants collaborate to create the most polished code for simple UI blocks.
 
-## WIP
-The project is in active development phase.
-
 ## Requirements
 * node 18
 * npm 9.8.1
-* podman 4+
+* docker 24+
 
 ## Initial setup (for local development)
 1. Make all scripts excutable and run the setup-env script which will create the app's podman image
