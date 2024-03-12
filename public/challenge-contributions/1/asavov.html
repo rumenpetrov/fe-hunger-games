@@ -1,11 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 1</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 1</title>
+    <style>
+      html {
+        background-color: black;
+      }
+      body {
+        margin: 0;
+      }
+      footer {
+        display: flex;
+        justify-content: end;
+      }
+      p {
+        font-size: 1rem;
+        margin: 0;
+      }
+      ol {
+        font-size: 1rem;
+        margin: 0;
+      }
+      ul {
+        font-size: 1rem;
+        margin: 0;
+      }
+      h1 {
+        font-size: 2.986rem;
+        margin: 15px 0;
+      }
+      h2 {
+        font-size: 2.488rem;
+        margin: 0;
+      }
+      h3 {
+        font-size: 2.074rem;
+        margin: 5px;
+      }
+      h4 {
+        font-size: 1.728rem;
+        margin: 0 0 10px 0;
+      }
+      figure {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+      }
+      .article-intro {
+        text-align: center;
+        margin: 0;
+      }
+      .content-wrapper {
+        width: 800px;
+        margin: auto;
+        background-color: white;
+        padding: 20px 15px;
+        background-image: url("https://cdn.wallpapersafari.com/88/54/VsRXHO.jpg");
+      }
+      a.link1:hover {
+        text-decoration: underline dotted red;
+      }
+      a.link2:hover {
+        text-decoration: green wavy underline;
+      }
+      a.link3:hover {
+        text-decoration: underline orange;
+      }
+      .footer-image {
+        width: 20px;
+        height: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content-wrapper">
+      <article>
+        <h1 class="article-intro">Basic Article</h1>
+        <h1>Dogs</h1>
+        <p><strong>Dogs</strong> <em>can be good friends!</em></p>
+        <p><strong>Dogs</strong> <em>need to be walked every day!</em></p>
+        <h3>Breeds:</h3>
+        <ol>
+          <li>Gonche</li>
+          <li>Barak</li>
+          <li>Dobermann</li>
+        </ol>
+        <h3>Images:</h3>
+        <ul>
+          <li>
+            <a
+              class="link1"
+              href="https://upload.wikimedia.org/wikipedia/commons/e/e2/Bulgarsko_gonche.jpg"
+              >Gonche image.</a
+            >
+          </li>
+          <li>
+            <a
+              class="link2"
+              href="https://upload.wikimedia.org/wikipedia/commons/e/ee/Bulgarian_barak.jpg"
+              >Barak image.</a
+            >
+          </li>
+          <li>
+            <a
+              class="link3"
+              href="https://upload.wikimedia.org/wikipedia/commons/a/ac/Dobermann_handling.jpg"
+              >Dobermann image.</a
+            >
+          </li>
+        </ul>
+        <h1>Cats</h1>
+        <h2>Also known as small tigers.</h2>
+        <h4>Also known as big killers.</h4>
+        <p><strong>Cats</strong> <em>can climb very high!</em></p>
+        <p><strong>Cats</strong> <em>can jump from very high!</em></p>
+        <h1>Ducks</h1>
+        <p><strong>Ducks</strong> <em>can fly!</em></p>
+        <p><strong>Ducks</strong> <em>can swim!</em></p>
+        <h1>Pigs</h1>
+        <p><strong>Pigs</strong> <em>get dirty!</em></p>
+        <p><strong>Pigs</strong> <em>can eat almost everything!</em></p>
+        <footer>
+          <figure>
+            <img
+              class="footer-image"
+              src="https://static-00.iconduck.com/assets.00/thumbs-up-emoji-476x512-dj06q5b2.png"
+              alt="Thumbs up"
+            />
+          </figure>
+          <q>Date released 07.03.2024</q>
+          <figure>
+            <img
+              class="footer-image"
+              src="https://static-00.iconduck.com/assets.00/thumbs-up-emoji-476x512-dj06q5b2.png"
+              alt="Thumbs up"
+            />
+          </figure>
+        </footer>
+      </article>
+    </div>
+  </body>
 </html>
