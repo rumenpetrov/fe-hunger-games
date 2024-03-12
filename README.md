@@ -9,7 +9,7 @@ Community-driven game focusing on front-end development, where participants coll
 ## Initial setup (for local development)
 1. Make all scripts excutable and run the setup-env script which will create the app's podman image
 ```bash
-$ chmod +x ./bin/*
+$ chmod u+x ./bin/*
 $ ./bin/setup-env.sh
 ```
 
