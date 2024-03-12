@@ -18,4 +18,10 @@ You could fork the project and then open PR to the upstream project. Here are co
 * [How to make a pull request on an open source project](https://www.youtube.com/watch?v=8A4TsoXJOs8)
 
 ### Git, branches, naming, strategy...
-TBD
+The branches created for contributing to a challenge should follow this naming convention
+
+```
+challenge-$CHALLENGE_NUMBRE/$CONTRIBUTOR_NAME
+# Example
+challenge-1/asavov
+```

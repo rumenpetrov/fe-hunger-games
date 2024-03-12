@@ -1,5 +1,6 @@
 # Pull Request checklist
 
+* [ ] My branch follows the naming convention e.g. "challenge-1/asavov"
 * [ ] I am contributing single HTML file, no folders, no any other external files even icons or images. - [Image CDN](https://placehold.co/)
 * [ ] My HTML is 100% valid - [HTML Validator](https://validator.w3.org/#validate_by_input)
 * [ ] My code is semantic (HTML/CSS/JS)
