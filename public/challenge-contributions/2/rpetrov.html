@@ -4,8 +4,261 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 2</title>
+
+  <style>
+    * {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --palette-background-h: 0;
+      --palette-background-s: 0;
+      --palette-background-l: 100%;
+      --palette-background-a: 100%;
+      --palette-background: hsla(
+          var(--palette-background-h)
+          var(--palette-background-s)
+          var(--palette-background-l)
+          / var(--palette-background-a)
+        );
+      --palette-foreground-h: 0;
+      --palette-foreground-s: 0%;
+      --palette-foreground-l: 10%;
+      --palette-foreground-a: 100%;
+      --palette-foreground: hsla(
+          var(--palette-foreground-h)
+          var(--palette-foreground-s)
+          var(--palette-foreground-l)
+          / var(--palette-foreground-a)
+        );
+      --palette-accent-h: 240;
+      --palette-accent-s: 100%;
+      --palette-accent-l: 65%;
+      --palette-accent-a: 100%;
+      --palette-accent: hsla(
+          var(--palette-accent-h)
+          var(--palette-accent-s)
+          var(--palette-accent-l)
+          / var(--palette-accent-a)
+        );
+      --palette-accent-contrast: var(--palette-background);
+      --palette-neutral: hsla(0 0 50% / 100%);
+      --palette-neutral-contrast: var(--palette-background);
+      --space-base: 8px;
+      --border-radius-base: 8px;
+    }
+
+    body {
+      --bg-layer1: hsla(
+        var(--palette-background-h)
+        var(--palette-background-s)
+        var(--palette-background-l)
+        / calc(var(--palette-background-a) - 95%)
+      );
+      --bg-layer2: hsla(
+        var(--palette-accent-h)
+        var(--palette-accent-s)
+        calc(var(--palette-accent-l) + 20%)
+        / var(--palette-accent-a)
+      );
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      min-height: 100vh;
+      font-family: sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--palette-foreground);
+      background-image:
+        radial-gradient(circle at center center, var(--bg-layer1), var(--bg-layer2)),
+        repeating-radial-gradient(circle at center center, var(--bg-layer1), var(--bg-layer1), 10px, transparent 20px, transparent 10px);
+      background-blend-mode: multiply;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-weight: normal;
+    }
+
+    svg {
+      width: 1.4em;
+      height: 1.4em;
+      fill: currentColor;
+    }
+
+    main {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-flex;
+      vertical-align: top;
+      border-radius: calc(var(--border-radius-base) / 2);
+      padding: 0.7em;
+      background-color: transparent;
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .button-icon {
+      padding: var(--space-base);
+    }
+
+    .button-primary {
+      background-color: var(--palette-accent);
+      color: var(--palette-accent-contrast);
+    }
+
+    .button-secondary {
+      background-color: var(--palette-neutral);
+      color: var(--palette-neutral-contrast);
+    }
+
+    .modal {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr auto;
+      width: 40vw;
+      min-height: 20vw;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -65%);
+      border-radius: var(--border-radius-base);
+      padding: 0;
+      color: var(--palette-foreground);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease-in-out;
+      pointer-events: none;
+    }
+
+    .modal[open] {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%);
+      pointer-events: auto;
+    }
+
+    .modal::backdrop {
+      opacity: 0.6;
+      background:
+        radial-gradient(circle at 100% 50%, transparent 20%, hsla(0 100% 0 / 3%) 21%,
+          hsla(0 100% 0 / 3%) 34%, transparent 35%, transparent),
+        radial-gradient(circle at 0% 50%, transparent 20%, hsla(0 100% 0 / 3%) 21%, hsla(0 100% 0 / 3%) 34%, transparent 35%, transparent) 0 -50px;
+      background-color: #eee;
+      background-size: 75px 100px;
+    }
+
+    .modal-header,
+    .modal-content,
+    .modal-footer {
+      padding: calc(var(--space-base) * 2);
+    }
+
+    .modal-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: 1fr;
+      align-items: center;
+    }
+
+    .modal-header .button-icon {
+      color: var(--palette-neutral);
+    }
+
+    .modal-title {
+      font-size: 1.5rem;
+    }
+
+    .modal-content {
+      border-width: 1px 0;
+      border-style: solid;
+      border-color: #ddd;
+    }
+
+    .modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: var(--space-base);
+    }
+  </style>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <main>
+    <button class="button button-primary" data-modal-trigger="1">Click me!</button>
+  </main>
+
+  <dialog
+    class="modal" data-modal="1"
+    role="alertdialog"
+    aria-modal="true"
+    aria-labelledby="confirmation-dialog-title"
+    aria-describedby="confirmation-dialog-description"
+  >
+    <header class="modal-header">
+      <h6 id="confirmation-dialog-title" class="modal-title">Modal title</h6>
+
+      <button class="button button-icon" data-modal-close="1">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4.39705 4.55379L4.46967 4.46967C4.73594 4.2034 5.1526 4.1792 5.44621 4.39705L5.53033 4.46967L12 10.939L18.4697 4.46967C18.7626 4.17678 19.2374 4.17678 19.5303 4.46967C19.8232 4.76256 19.8232 5.23744 19.5303 5.53033L13.061 12L19.5303 18.4697C19.7966 18.7359 19.8208 19.1526 19.6029 19.4462L19.5303 19.5303C19.2641 19.7966 18.8474 19.8208 18.5538 19.6029L18.4697 19.5303L12 13.061L5.53033 19.5303C5.23744 19.8232 4.76256 19.8232 4.46967 19.5303C4.17678 19.2374 4.17678 18.7626 4.46967 18.4697L10.939 12L4.46967 5.53033C4.2034 5.26406 4.1792 4.8474 4.39705 4.55379L4.46967 4.46967L4.39705 4.55379Z" />
+        </svg>
+      </button>
+    </header>
+
+    <div class="modal-content" id="confirmation-dialog-description">
+      <p>Modal body text goes here.</p>
+    </div>
+
+    <footer class="modal-footer">
+      <button class="button button-secondary" data-modal-close="1">Close</button>
+      <button class="button button-primary" data-modal-close="1">Save changes</button>
+    </footer>
+  </dialog>
+
+  <script>
+    const dialogRootElementList = document.querySelectorAll('[data-modal]');
+    const dialogTriggerElementList = document.querySelectorAll('[data-modal-trigger]');
+    const dialogCloseElementList = document.querySelectorAll('[data-modal-close]');
+
+    if (dialogRootElementList?.length) {
+      dialogTriggerElementList.forEach((dialogTriggerElementListItem) => {
+        dialogTriggerElementListItem.addEventListener('click', () => {
+          const selectedDialogRootElement = [...dialogRootElementList]
+            .find(dialogRootElementListItem =>
+                dialogRootElementListItem.dataset?.modal === dialogTriggerElementListItem.dataset?.modalTrigger);
+
+          if (selectedDialogRootElement) {
+            // selectedDialogRootElement.set = 'opened';
+            selectedDialogRootElement.showModal();
+          }
+        });
+      });
+
+      dialogCloseElementList.forEach((dialogCloseElementListItem) => {
+        dialogCloseElementListItem.addEventListener('click', () => {
+          const selectedDialogRootElement = [...dialogRootElementList]
+            .find(dialogRootElementListItem =>
+                dialogRootElementListItem.dataset?.modal === dialogCloseElementListItem.dataset?.modalClose);
+
+          if (selectedDialogRootElement) {
+            // selectedDialogRootElement.dataset.modalState = 'closed';
+            selectedDialogRootElement.close();
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
