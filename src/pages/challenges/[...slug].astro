@@ -6,7 +6,7 @@ import Challenge from '@src/layouts/Challenge.astro';
 export async function getStaticPaths() {
   const challenges = await getCollection('challenges');
 
-  return challenges.map((challenge: Object) => ({
+  return challenges.map((challenge) => ({
     params: { slug: challenge.slug },
     props: challenge,
   }));

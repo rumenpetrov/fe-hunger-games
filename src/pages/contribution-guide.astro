@@ -3,7 +3,7 @@ import { getEntry } from 'astro:content';
 import TextPage from '@src/layouts/TextPage.astro';
 
 const entry = await getEntry('pages', 'contribution-guide');
-const { Content, headings } = await entry.render();
+const { Content } = await entry.render();
 ---
 <TextPage {...entry.data}>
   <Content />
