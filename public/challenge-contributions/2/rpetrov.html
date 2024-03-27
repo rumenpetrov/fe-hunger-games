@@ -15,7 +15,7 @@
 
     :root {
       --palette-background-h: 0;
-      --palette-background-s: 0;
+      --palette-background-s: 0%;
       --palette-background-l: 100%;
       --palette-background-a: 100%;
       --palette-background: hsla(
@@ -45,7 +45,7 @@
           / var(--palette-accent-a)
         );
       --palette-accent-contrast: var(--palette-background);
-      --palette-neutral: hsla(0 0 50% / 100%);
+      --palette-neutral: hsla(0 0% 50% / 100%);
       --palette-neutral-contrast: var(--palette-background);
       --space-base: 8px;
       --border-radius-base: 8px;
@@ -153,9 +153,9 @@
     .modal::backdrop {
       opacity: 0.6;
       background:
-        radial-gradient(circle at 100% 50%, transparent 20%, hsla(0 100% 0 / 3%) 21%,
-          hsla(0 100% 0 / 3%) 34%, transparent 35%, transparent),
-        radial-gradient(circle at 0% 50%, transparent 20%, hsla(0 100% 0 / 3%) 21%, hsla(0 100% 0 / 3%) 34%, transparent 35%, transparent) 0 -50px;
+        radial-gradient(circle at 100% 50%, transparent 20%, hsla(0 100% 0% / 3%) 21%,
+          hsla(0 100% 0% / 3%) 34%, transparent 35%, transparent),
+        radial-gradient(circle at 0% 50%, transparent 20%, hsla(0 100% 0% / 3%) 21%, hsla(0 100% 0% / 3%) 34%, transparent 35%, transparent) 0 -50px;
       background-color: #eee;
       background-size: 75px 100px;
     }
