@@ -1,21 +1,22 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 import Challenge from '@src/layouts/Challenge.astro';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('challenges');
+  const challenges = await getCollection('challenges');
 
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
+  return challenges.map((challenge: Object) => ({
+    params: { slug: challenge.slug },
+    props: challenge,
   }));
 }
 
 type Props = CollectionEntry<'challenges'>;
 
-const post = Astro.props;
-const { Content } = await post.render();
+const challenge = Astro.props;
+const { Content } = await challenge.render();
 ---
-<Challenge {...post.data}>
+<Challenge {...challenge.data}>
   <Content />
 </Challenge>

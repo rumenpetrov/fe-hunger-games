@@ -1,0 +1,51 @@
+---
+import ShadowDOM from '@src/components/ShadowDOM.astro';
+import HTMLContribution from '/public/challenge-contributions/0/my-name.html';
+import HTMLContributionRaw from '/public/challenge-contributions/0/my-name.html?raw';
+
+// const contributions = await Astro.glob('@src/challenge-contributions/0/*.html');
+const contributions = await Astro.glob('/public/challenge-contributions/**/*.html');
+---
+<div>
+  <ShadowDOM content={HTMLContributionRaw}>
+    <p>I'm in the shadow DOM</p>
+  </ShadowDOM>
+
+  <p>I'm NOT in the shadow DOM</p>
+</div>
+
+<hr />
+
+{contributions.map((submission) => {
+  const HTMLNode = submission.default;
+
+  return (
+    <ShadowDOM>
+      <HTMLNode />
+    </ShadowDOM>
+  );
+})}
+
+<hr />
+
+{contributions.map((submission) => {
+  const HTMLNode = submission.default;
+
+  return (
+    <p><HTMLNode /></p>
+  );
+})}
+
+<hr />
+
+<HTMLContribution />
+
+<hr />
+
+<Fragment set:html={HTMLContributionRaw} />
+
+<hr />
+
+<pre>{HTMLContributionRaw}</pre>
+
+<iframe srcdoc={HTMLContributionRaw}></iframe>

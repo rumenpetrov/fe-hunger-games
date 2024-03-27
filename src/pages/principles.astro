@@ -1,53 +1,10 @@
 ---
-import BaseHead from '@src/components/BaseHead.astro';
-import Header from '@src/components/Header.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
+import { getEntry } from 'astro:content';
+import TextPage from '@src/layouts/TextPage.astro';
+
+const entry = await getEntry('pages', 'principles');
+const { Content, headings } = await entry.render();
 ---
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-
-    <style>
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-    </style>
-  </head>
-
-  <body>
-    <Header title={SITE_TITLE} />
-
-    <main>
-      <div class="title">
-        <h1>Principles</h1>
-
-        <hr />
-      </div>
-
-      <ul>
-        <li>Provide 100% valid HTML</li>
-
-        <li>Write <a href="https://developer.mozilla.org/en-US/docs/Glossary/Semantics">semantic HTML/CSS/JS</a></li>
-
-        <li>Prefer native elements, properties or APIs before external libraries</li>
-
-        <li>Use <a href="https://dev.to/stakedesigner/best-practices-for-naming-classes-in-html-and-css-files-2kb5">meaningful class names</a></li>
-
-        <li>The <a href="https://web.dev/articles/vitals?hl=en">performance</a> is important</li>
-
-        <li>Think about the needs of the person which will use your code, the user experience(UX) and the developer experience(DX)</li>
-
-        <li>Use elements, properties or APIs with sufficient browser support, required by the task you are working on</li>
-
-        <li>Follow the general <a href="https://www.linkedin.com/pulse/frontend-development-best-practices-code-structure-adekola-olawale">best practices</a> in web development</li>
-      </ul>
-    </main>
-  </body>
-</html>
+<TextPage {...entry.data}>
+  <Content />
+</TextPage>

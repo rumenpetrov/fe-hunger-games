@@ -3,60 +3,60 @@ index: 1
 isDraft: false
 title: 'Article with unique text links'
 description: ''
-pubDate: 'Jan 19 2024'
-updatedDate: 'Feb 12 2024'
+pubDate: 'Mar 12 2024'
 heroImage: '/blog-placeholder-1.jpg'
 ---
 import Special from '@src/components/Special.astro';
 import Winner from '@src/components/Winner.astro';
 import MVP from '@src/components/MVP.astro';
-import DocumentPreview from '@src/components/DocumentPreview.astro';
+import Section from '@src/components/Section.astro';
 
-import asavovDocument from '/challenge-contributions/1/asavov.html?url&raw';
-import gdespolovDocument from '/challenge-contributions/1/gdespolov.html?url&raw';
-import rpetrovDocument from '/challenge-contributions/1/rpetrov.html?url&raw';
+<Section>
+  ## Requirements
+  * Create simple article UI for a blog page
+  * Content wrapper - 800px
+  * Include headings from 1 to 4
+  * Include at least 8 paragraphs
+  * Use couple `strong` and `em` tags
+  * Use specific typography scale rule for the size of your text
+  * Include ordered and unordered list
+  * Include 1 quote
+  * Include a date for the post
+  * Include a photo and a figure
+  * Include at least 3 links
+  * Be mindful about the spacing around elements
+  * <Special /> Make the links unique by using the text decoration CSS properties.
+</Section>
 
-## Requirements
-* Create simple article UI for a blog page
-* Content wrapper - 800px
-* Include headings from 1 to 4
-* Include at least 8 paragraphs
-* Use couple `strong` and `em` tags
-* Use specific typography scale rule for the size of your text
-* Include ordered and unordered list
-* Include 1 quote
-* Include a date for the post
-* Include a photo and a figure
-* Include at least 3 links
-* Be mindful about the spacing around elements
-* <Special /> Make the links unique by using the text decoration CSS properties.
+<Section>
+  ### Design preview
+  Personal preference
+</Section>
 
-### Design preview
-Personal preference
+<Section>
+  #### Resources
+  Not available
+</Section>
 
-#### Resources
-Not available
+<Section>
+  #### Learn more
+  * [Text decoration thinkness](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness)
+  * [Text decoration color](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-color)
+  * [Text underline offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset)
+  * [Typescale generator](https://typescale.com/)
+  * [Visual hierarchy](https://www.justinmind.com/ui-design/visual-hierarchy)
+  * [Collapsing margins MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
+  * [Collapsing margins video](https://www.youtube.com/watch?v=qKiz9gdJdr8)
+</Section>
 
-#### Refs
-* [Text decoration thinkness](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-thickness)
-* [Text decoration color](https://developer.mozilla.org/en-US/docs/Web/CSS/text-decoration-color)
-* [Text underline offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset)
-* [Typescale generator](https://typescale.com/)
-* [Visual hierarchy](https://www.justinmind.com/ui-design/visual-hierarchy)
-* [Collapsing margins MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_box_model/Mastering_margin_collapsing)
-* [Collapsing margins video](https://www.youtube.com/watch?v=qKiz9gdJdr8)
-
-### Contributions
-<DocumentPreview content={asavovDocument} index="1" fileName="asavov.html" />
-<DocumentPreview content={gdespolovDocument} index="1" fileName="gdespolov.html" />
-<DocumentPreview content={rpetrovDocument} index="1" fileName="rpetrov.html" />
-
-### Discussion topics
-- Type scales in typography and UI design common rules
-- Collapsing margins
-- Different CSS reset approaches
-- Utility classes vs no classes when writing articles
-- Semantic meaning of figure, picture, q, blockquote, time
+<Section>
+  ### Discussion topics
+  * Type scales in typography and UI design common rules
+  * Collapsing margins
+  * Different CSS reset approaches
+  * Utility classes vs no classes when writing articles
+  * Semantic meaning of figure, picture, q, blockquote, time
+</Section>
 
 <Winner>
   <em>gdespolov</em>

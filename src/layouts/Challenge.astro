@@ -1,88 +1,104 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import Document from '@src/components/Document.astro';
 import BaseHead from '@src/components/BaseHead.astro';
 import Header from '@src/components/Header.astro';
 import FormattedDate from '@src/components/FormattedDate.astro';
+import Contributions from '@src/components/Contributions.astro';
 
 type Props = CollectionEntry<'challenges'>['data'];
 
 const { index, isDraft, title, description, pubDate, updatedDate, heroImage } = Astro.props;
-
 ---
-<html lang="en">
+<Document>
   <head>
     <BaseHead title={title} description={description} />
-
-    <style>
-      main {
-        width: calc(100% - 2em);
-        max-width: 100%;
-        margin: 0;
-      }
-      .hero-image {
-        width: 100%;
-      }
-      .hero-image img {
-        display: block;
-        margin: 0 auto;
-        border-radius: 12px;
-        box-shadow: var(--box-shadow);
-      }
-      .prose {
-        width: 720px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
-      }
-      .title {
-        margin-bottom: 1em;
-        padding: 1em 0;
-        text-align: center;
-        line-height: 1;
-      }
-      .title h1 {
-        margin: 0 0 0.5em 0;
-      }
-      .date {
-        margin-bottom: 0.5em;
-        color: rgb(var(--gray));
-      }
-      .last-updated-on {
-        font-style: italic;
-      }
-    </style>
   </head>
 
   <body>
     <Header />
 
     <main>
-      <article>
-        <div class="hero-image">
-          {heroImage && <img width={1020} height={510} src={`${import.meta.env.BASE_URL}${heroImage}`} alt="" />}
-        </div>
+      <div class="head">
+        <div class="title">
+          <div class="date">
+            <FormattedDate date={pubDate} />
 
-        <div class="prose">
-          <div class="title">
-            <div class="date">
-              <FormattedDate date={pubDate} />
-
-              {updatedDate && (
-                <div class="last-updated-on">
-                  Last updated on <FormattedDate date={updatedDate} />
-                </div>
-              )}
-            </div>
-
-            <h1>{isDraft && `[Draft]`} {index}. {title}</h1>
-
-            <hr />
+            {updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )}
           </div>
 
-          <slot />
+          <h1>{isDraft && `[Draft]`} {index}. {title}</h1>
         </div>
-      </article>
+
+        <div class="hero">
+          {heroImage && <img width={1020} height={510} src={`${import.meta.env.BASE_URL}${heroImage}`} alt="hero" />}
+        </div>
+      </div>
+
+      <div class="content">
+        <slot />
+      </div>
+
+      <div class="contributions">
+        <Contributions index={index} />
+      </div>
     </main>
   </body>
-</html>
+</Document>
+
+<style>
+  * {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+  main {
+    display: grid;
+    grid-template-areas:
+      'head'
+      'content'
+      'contributions';
+    gap: 30px;
+    padding: 30px;
+    max-width: 2000px;
+    margin: 0 auto;
+  }
+  @media (min-width: 1200px) {
+    main {
+      grid-template-areas:
+      "head    head"
+      "content contributions";
+    }
+  }
+  .head {
+    grid-area: head;
+  }
+  .title {
+    margin-bottom: 0.5em;
+    line-height: 1;
+    text-align: center;
+  }
+  .date {
+    margin-bottom: 0.5em;
+    color: rgb(var(--gray));
+  }
+  .last-updated-on {
+    font-style: italic;
+  }
+  .hero img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: var(--box-shadow);
+  }
+  .content {
+    grid-area: content;
+  }
+  .contributions {
+    grid-area: contributions;
+  }
+</style>

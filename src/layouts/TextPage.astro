@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Document from '@src/components/Document.astro';
+import BaseHead from '@src/components/BaseHead.astro';
+import Header from '@src/components/Header.astro';
+
+type Props = CollectionEntry<'pages'>['data'];
+
+const { type, title, description } = Astro.props;
+---
+<Document>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+
+  <body>
+    <Header />
+
+    <main>
+      <h1 style={{ textAlign: 'center' }}>{title}</h1>
+
+      <hr />
+
+      <slot />
+    </main>
+  </body>
+</Document>
+
+<style>
+  main {
+    width: 720px;
+    max-width: 100%;
+    margin: auto;
+    padding: 3rem 1rem;
+  }
+</style>
