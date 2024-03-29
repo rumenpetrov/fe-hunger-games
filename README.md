@@ -7,7 +7,7 @@ Community-driven game focusing on front-end development, where participants coll
 * docker 24+
 
 ## Initial setup (for local development)
-1. Make all scripts excutable and run the setup-env script which will create the app's docker image
+1. Make all scripts executable and run the setup-env script which will create the app's docker image
 ```bash
 $ chmod u+x ./bin/*
 $ ./bin/setup-env.sh
