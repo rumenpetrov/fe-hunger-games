@@ -1,11 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 2</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 2 - GD</title>
+    <style>
+      :root {
+        font-family: Arial;
+      }
+      p {
+        margin: 0;
+      }
+      h2 {
+        margin: 0;
+      }
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      button:focus {
+        outline: none;
+        box-shadow: none;
+      }
+
+      .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        background: white;
+        padding: 0;
+        margin: 0;
+        min-width: 500px;
+        border: none;
+        border-radius: 10px;
+      }
+      .modal::backdrop {
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .open-modal-btn {
+        background-color: #4158d0;
+        background-image: linear-gradient(
+          43deg,
+          #4158d0 0%,
+          #c850c0 46%,
+          #ffcc70 100%
+        );
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .modal-header {
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+      .modal-body {
+        padding: 20px;
+      }
+      .modal-footer {
+        padding: 20px;
+        display: flex;
+        justify-content: flex-end;
+      }
+      .close-btn {
+        background-color: grey;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 5px;
+      }
+      .header-close-btn {
+        border: none;
+        cursor: pointer;
+        padding: 0;
+        background-color: transparent;
+      }
+      .header-close-btn-img {
+        width: 24px;
+        height: 24px;
+      }
+      .save-btn {
+        background-color: dodgerblue;
+        color: white;
+        border: none;
+        padding: 10px;
+        margin-left: 10px;
+        border-radius: 5px;
+      }
+      .save-btn {
+        cursor: pointer;
+      }
+      .divider {
+        border-bottom: 1px solid lightgray;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button class="open-modal-btn" id="openModalBtn">Open Modal</button>
+
+    <dialog class="modal">
+      <header class="modal-header">
+        <h2>Title</h2>
+
+        <button class="header-close-btn">
+          <img
+            class="header-close-btn-img"
+            src="../../challenge-resources/close.svg"
+            alt="close icon"
+          />
+        </button>
+      </header>
+
+      <div class="divider"></div>
+
+      <div class="modal-body">
+        <p>body of the modal</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <footer class="modal-footer">
+        <button class="close-btn">Close</button>
+
+        <button class="save-btn">Save Changes</button>
+      </footer>
+    </dialog>
+
+    <script>
+      const openModalButton = document.querySelector(".open-modal-btn");
+      const modal = document.querySelector(".modal");
+      const closeButton = document.querySelector(".close-btn");
+      const headerCloseButton = document.querySelector(".header-close-btn");
+
+      openModalButton.addEventListener("click", () => {
+        modal.showModal();
+      });
+
+      closeButton.addEventListener("click", () => {
+        modal.close();
+      });
+
+      headerCloseButton.addEventListener("click", () => {
+        modal.close();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          modal.close();
+        }
+      });
+
+      modal.addEventListener("click", (event) => {
+        const modalRect = event.target.getBoundingClientRect();
+
+        if (
+          modalRect.left > event.clientX ||
+          modalRect.right < event.clientX ||
+          modalRect.top > event.clientY ||
+          modalRect.bottom < event.clientY
+        ) {
+          modal.close();
+        }
+      });
+    </script>
+  </body>
 </html>
