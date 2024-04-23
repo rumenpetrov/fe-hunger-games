@@ -4,8 +4,211 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 3</title>
+
+  <style>
+    * {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+    html,
+    body {
+      min-height: 100vh;
+      background-color: #1d1d1d;
+      color: #fff;
+    }
+    .list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+      gap: 16px;
+      padding: 32px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .scene {
+      display: flex;
+      place-content: center;
+      perspective: 1000px;
+    }
+    .card {
+      --radii: 8px;
+      
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-width: 2px;
+      border-style: solid;
+      border-color: rgb(255, 255, 255, 0.4);
+      background-color: #000;
+      transition: transform 1s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+      transform-style: preserve-3d;
+      border-radius: var(--radii);
+      box-shadow: 0 0 8px rgba(255, 255, 255, .4);
+    }
+    .card:hover {
+      transform: rotateY(180deg);
+      box-shadow: 0 0 8px rgba(152, 2, 182, 0.6);
+      border-color: rgba(152, 2, 182, 0.6);
+    }
+    .card img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card__title {
+      font-family: system-ui, sans-serif;
+      font-size: 38px;
+      line-height: 1.2;
+      letter-spacing: 0.8px;
+      color: currentColor;
+    }
+    .card__face {
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      backface-visibility: hidden;
+      display: flex;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      border-radius: var(--radii);
+      padding: 16px;
+      align-items: flex-end;
+    }
+    .card__face--front {
+      --pattern-size: 30px;
+      --pattern-color1: #1d1d1d;
+      --pattern-color2: #4e4f51;
+      --pattern-color3: #3c3c3c;
+
+      background:
+        repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--pattern-color3) 0 180deg) calc(.5 * var(--pattern-size)) calc(.5 * var(--pattern-size)*0.577),
+        repeating-conic-gradient(from 30deg, var(--pattern-color1) 0 60deg, var(--pattern-color2) 0 120deg, var(--pattern-color3) 0 180deg);
+      background-size: var(--pattern-size) calc(var(--pattern-size)*0.577);
+      transform: rotateY(0deg);
+    }
+
+    .card__face--back {
+      background-color: red;
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <div class="list">
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum sit</h6>
+        </div>
+        
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1713171158499-9d1c96c881ec?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIwfHx8ZW58MHx8fHx8" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem dolor sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1706788768591-a10a627bbdec?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1706785534889-9b40e60834fd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum dolor sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1706720094778-5156e8b656e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDR8fHxlbnwwfHx8fHw%3D" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1696838165908-391883adf443?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1699951898167-12aeb508c66e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum dolor sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1711100254279-0d6e1460ac36?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE4fHx8ZW58MHx8fHx8" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum dolor sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1710755138489-022101f89cd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE3fHx8ZW58MHx8fHx8" alt="card preview" >
+        </div>
+      </div>
+    </div>
+
+    <div class="scene">
+      <div class="card">
+        <div class="card__face card__face--front">
+          <h6 class="card__title">Lorem ipsum dolor sit</h6>
+        </div>
+  
+        <div class="card__face card__face--back">
+          <img src="https://images.unsplash.com/photo-1711831521065-e546a5aca68e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="card preview" >
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
