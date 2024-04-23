@@ -21,6 +21,8 @@ const challenges = defineCollection({
     pubDate: z.coerce.date(),
     updatedDate: z.coerce.date().optional(),
     heroImage: z.string().optional(),
+    winner: z.string(),
+    mvp: z.string(),
   }),
 });
 

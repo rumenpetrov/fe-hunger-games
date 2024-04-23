@@ -1,0 +1,61 @@
+---
+index: 4
+isDraft: false
+title: 'Tabs using modern technologies'
+description: ''
+pubDate: 'Jun 01 2024'
+heroImage: '/blog-placeholder-4.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Create at least 3 tabs - navigation and content panels
+  * In the content panel of each tab add at least 1 title
+  * In the content panel of each tab add at least 3 paragraphs of text
+  * Feel free to add any other content in the panels or outside of them
+  * <Special /> Use at least 1 custom element from any [web component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components) UI library **(You will find couple suggestions in the Resources section)**
+  * Use CDN for your dependencies instead of a package manager like NPM or yarn
+  * Feel free to use any components from the UI library of your choice
+</Section>
+
+<Section>
+  ### Design preview
+  Personal preference
+</Section>
+
+<Section>
+  #### Resources
+  * UI library suggestions
+    * [Material web components CDN](https://github.com/material-components/material-web/blob/main/docs/quick-start.md)
+    * [Material web components - Tabs](https://material-web.dev/components/tabs/#tab-panels)
+    * [ING - Lion](https://lion-web.netlify.app/)
+    * [Trendyol - Baklava](baklava.design)
+    * [Microsoft - Fast](https://www.fast.design/)
+  * [Alternative CDN provider](https://esm.sh/)
+</Section>
+
+<Section>
+  #### Learn more
+  * [Going Buildless: ES Modules](https://modern-web.dev/guides/going-buildless/es-modules/)
+  * [Webcomponents.org](https://www.webcomponents.org/)
+  * [Open Web components](https://open-wc.org/)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>

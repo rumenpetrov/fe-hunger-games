@@ -6,6 +6,8 @@ description: ''
 pubDate: 'Apr 04 2024'
 updatedDate: 'Mar 8 2024'
 heroImage: '/blog-placeholder-2.jpg'
+winner: 'gdespolov'
+mvp: 'gdespolov'
 ---
 import Special from '@src/components/Special.astro';
 import Winner from '@src/components/Winner.astro';
@@ -49,9 +51,9 @@ import Section from '@src/components/Section.astro';
 </Section>
 
 <Winner>
-  <em>gdespolov</em>
+  <em>{frontmatter.winner}</em>
 </Winner>
 
 <MVP>
-  <em>gdespolov</em>
+  <em>{frontmatter.mvp}</em>
 </MVP>
