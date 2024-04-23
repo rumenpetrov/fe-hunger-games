@@ -5,6 +5,8 @@ title: 'Article with unique text links'
 description: ''
 pubDate: 'Mar 12 2024'
 heroImage: '/blog-placeholder-1.jpg'
+winner: 'gdespolov'
+mvp: 'gdespolov'
 ---
 import Special from '@src/components/Special.astro';
 import Winner from '@src/components/Winner.astro';
@@ -59,9 +61,9 @@ import Section from '@src/components/Section.astro';
 </Section>
 
 <Winner>
-  <em>gdespolov</em>
+  <em>{frontmatter.winner}</em>
 </Winner>
 
 <MVP>
-  <em>gdespolov</em>
+  <em>{frontmatter.mvp}</em>
 </MVP>
