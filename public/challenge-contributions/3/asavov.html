@@ -1,11 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 3</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VISA</title>
+    <style>
+      * {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        line-height: 1;
+      }
+      img {
+        display: block;
+        margin: auto;
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 7px;
+        -webkit-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 1);
+        -moz-box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 1);
+        box-shadow: 0px 0px 5px -1px rgba(0, 0, 0, 1);
+      }
+      figure {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+      }
+      .wrapper {
+        width: 100vw;
+        height: 100vh;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .absolute {
+        position: absolute;
+      }
+      .fig-top-left {
+        top: 10px;
+        left: 20px;
+      }
+      .fig-top-right {
+        top: 10px;
+        right: 20px;
+      }
+      h1 {
+        font-size: 61.04px;
+      }
+      h4 {
+        font-size: 47.78px;
+      }
+      .fig-bottom-right {
+        bottom: 10px;
+        right: 20px;
+      }
+      .fig-bottom-left {
+        bottom: 20px;
+        left: 20px;
+      }
+      .fig-center {
+        top: 50%;
+        right: 20px;
+      }
+      .scene {
+        transform: perspective(600px);
+      }
+      .front,
+      .back {
+        backface-visibility: hidden;
+      }
+      .back {
+        transform: rotateY(180deg);
+      }
+      .scene:hover figure {
+        transition: transform 600ms ease;
+        transform-style: preserve-3d;
+        transform: rotateY(180deg);
+      }
+      .scene:not(:hover) figure {
+        transition: transform 600ms ease;
+        transform-style: preserve-3d;
+      }
+      .scene:not(:hover) .front {
+        transition: transform 600ms ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="scene">
+        <figure>
+          <img src="../../blog-placeholder-1.jpg" alt="revolut-like-img" />
+          <h1 class="front fig-top-left absolute">Bulgarolut</h1>
+          <h1 class="front fig-bottom-right absolute">VISA</h1>
+          <h4 class="front fig-bottom-left absolute">Aleko Konstantinov</h4>
+          <h1 class="back fig-top-right absolute">1234 1234 1234 1234</h1>
+          <h1 class="back fig-center absolute">01/99 123</h1>
+        </figure>
+      </div>
+    </div>
+  </body>
 </html>
