@@ -1,0 +1,59 @@
+---
+index: 5
+isDraft: true
+title: 'Mobile first horizontal scroll menu'
+description: ''
+pubDate: 'Jul 01 2024'
+heroImage: '/blog-placeholder-1.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Add menu bar with enough links to overflow when placed in one line
+  * Use only CSS to build the menu
+  * Follow the mobile first approach when writing your styles
+  * Place the bar at the bottom of the page by default
+  * On screens larger than 768px the bar should be placed somewhere around the top of the page (appropriate for desktop application)
+  * Loosely follow the design but feel free to style the menu as you please
+  * **(optional)** Style the native scroll bars where possible
+  * <Special /> Follow the [BEM](https://getbem.com/introduction/) naming convention
+</Section>
+
+<Section>
+  ### Design preview
+  ![blog placeholder](/fe-hunger-games/challenge-resources/horizontal-scroll-bar.gif)
+</Section>
+
+<Section>
+  #### Resources
+  Not available
+</Section>
+
+<Section>
+  #### Learn more
+  * [Learn Responsive Design - web.dev](https://web.dev/learn/design)
+  * [Mobile first - MDN](https://developer.mozilla.org/en-US/docs/Glossary/Mobile_First)
+  * [Mobile first - Video](https://www.youtube.com/watch?v=HOyWyrRHvG0)
+  * [What is mobile first css and why does it rock](https://www.mightyminnow.com/2013/11/what-is-mobile-first-css-and-why-does-it-rock/)
+  * [Responsive design - MDN](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
+  * [Organize css modular architecture](https://snipcart.com/blog/organize-css-modular-architecture)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>
