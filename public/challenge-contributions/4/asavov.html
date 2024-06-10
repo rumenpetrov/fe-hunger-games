@@ -1,11 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 4</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 4</title>
+    <script
+      type="module"
+      src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.15.1/cdn/components/qr-code/qr-code.js"
+    ></script>
+    <style>
+      * {
+        border: 0;
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+      h1 {
+        font-size: 61.04px;
+      }
+      p {
+        font-size: 16px;
+      }
+      .tabs {
+        padding: 5px 10px;
+      }
+      button {
+        background-color: white;
+        cursor: pointer;
+        font-size: 39.81px;
+      }
+      button[aria-selected="true"] {
+        background-color: #007bff;
+        color: #ffffff;
+        border: 2px solid #0056b3;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 10px;
+      }
+      .tab-panel {
+        text-align: center;
+      }
+      @media screen and (max-width: 768px) {
+        .tab-buttons {
+          justify-content: space-between;
+        }
+      }
+      .qr-overview {
+        padding-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="header">
+        <div class="tabs">
+          <div class="tab-buttons" role="tablist" aria-label="Sample Tabs">
+            <button
+              role="tab"
+              aria-selected="true"
+              aria-controls="panel-1"
+              id="tab-1"
+              tabindex="0"
+            >
+              Click1
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-2"
+              id="tab-2"
+              tabindex="-1"
+            >
+              Click2
+            </button>
+            <button
+              role="tab"
+              aria-selected="false"
+              aria-controls="panel-3"
+              id="tab-3"
+              tabindex="-1"
+            >
+              Click3
+            </button>
+          </div>
+          <div
+            class="tab-panel"
+            id="panel-1"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-1"
+          >
+            <h1>Content 1</h1>
+            <p>Content for the first panel</p>
+            <p>Content for the first panel</p>
+            <p>Scan the QR</p>
+            <div class="qr-overview">
+              <sl-qr-code
+                value="MADE IN BG"
+                label="Scan this code to visit Shoelace on the web!"
+              ></sl-qr-code>
+            </div>
+          </div>
+          <div
+            class="tab-panel"
+            id="panel-2"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-2"
+            hidden
+          >
+            <h1>Content 2</h1>
+            <p>Content for the second panel</p>
+            <p>Content for the second panel</p>
+            <p>Content for the second panel</p>
+          </div>
+          <div
+            class="tab-panel"
+            id="panel-3"
+            role="tabpanel"
+            tabindex="0"
+            aria-labelledby="tab-3"
+            hidden
+          >
+            <h1>Content 3</h1>
+            <p>Content for the third panel</p>
+            <p>Content for the third panel</p>
+            <p>Content for the third panel</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const tabs = document.querySelectorAll('[role="tab"]');
+        const tabList = document.querySelector('[role="tablist"]');
+
+        // Add a click event handler to each tab
+        tabs.forEach((tab) => {
+          tab.addEventListener("click", changeTabs);
+        });
+
+        // Enable arrow navigation between tabs in the tab list
+        let tabFocus = 0;
+
+        tabList.addEventListener("keydown", (e) => {
+          // Move right
+          if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+            tabs[tabFocus].setAttribute("tabindex", -1);
+            if (e.key === "ArrowRight") {
+              tabFocus++;
+              // If we're at the end, go to the start
+              if (tabFocus >= tabs.length) {
+                tabFocus = 0;
+              }
+              // Move left
+            } else if (e.key === "ArrowLeft") {
+              tabFocus--;
+              // If we're at the start, move to the end
+              if (tabFocus < 0) {
+                tabFocus = tabs.length - 1;
+              }
+            }
+
+            tabs[tabFocus].setAttribute("tabindex", 0);
+            tabs[tabFocus].focus();
+          }
+        });
+      });
+
+      function changeTabs(e) {
+        const target = e.target;
+        const parent = target.parentNode;
+        const grandparent = parent.parentNode;
+
+        // Remove all current selected tabs
+        parent
+          .querySelectorAll('[aria-selected="true"]')
+          .forEach((t) => t.setAttribute("aria-selected", false));
+
+        // Set this tab as selected
+        target.setAttribute("aria-selected", true);
+
+        // Hide all tab panels
+        grandparent
+          .querySelectorAll('[role="tabpanel"]')
+          .forEach((p) => p.setAttribute("hidden", true));
+
+        // Show the selected panel
+        grandparent.parentNode
+          .querySelector(`#${target.getAttribute("aria-controls")}`)
+          .removeAttribute("hidden");
+      }
+    </script>
+  </body>
 </html>
