@@ -1,11 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 4</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Material Web Tabs</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "@material/web/": "https://esm.run/@material/web/"
+        }
+      }
+    </script>
+    <script type="module">
+      import "@material/web/all.js";
+
+      const tabs = document.querySelector("md-tabs");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabs.addEventListener("change", (event) => {
+        tabContents.forEach((content, index) => {
+          content.classList.toggle(
+            "active",
+            index === event.target.activeTabIndex
+          );
+        });
+      });
+    </script>
+    <style>
+      body {
+        padding: 20px;
+        background-color: blue;
+      }
+      .tab-content {
+        display: none;
+        padding: 20px;
+        color: yellow;
+        border: 4px solid yellow;
+      }
+      .tab-content.active {
+        display: block;
+      }
+      md-tabs {
+        margin-bottom: 10px;
+      }
+      :root {
+        --md-sys-color-surface: white;
+        --md-sys-color-primary: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="tabs">
+      <md-tabs>
+        <md-secondary-tab>Tab 1</md-secondary-tab>
+        <md-secondary-tab>Tab 2</md-secondary-tab>
+        <md-secondary-tab>Tab 3</md-secondary-tab>
+      </md-tabs>
+
+      <div id="tab-1" class="tab-content active">
+        <h2>Tab 1 Title</h2>
+
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec
+          dictum erat. Fusce vitae purus sed eros bibendum.
+        </p>
+
+        <p>
+          Donec convallis ligula at tortor vulputate, ac varius leo ullamcorper.
+          Morbi in sagittis urna, sit amet vehicula.
+        </p>
+
+        <p>
+          Quisque vitae erat vitae arcu auctor eleifend. Integer tincidunt
+          mauris id dui fermentum, nec faucibus quam.
+        </p>
+      </div>
+
+      <div id="tab-2" class="tab-content">
+        <h2>Tab 2 Title</h2>
+
+        <p>
+          Nam suscipit magna a orci gravida, a gravida mauris elementum. Sed sit
+          amet convallis nisl. Cras efficitur magna.
+        </p>
+
+        <p>
+          Sed non odio eget nulla tincidunt vestibulum sit amet ut eros. Proin
+          eu dolor non erat tristique commodo. Phasellus.
+        </p>
+
+        <p>
+          Mauris at felis ac nulla blandit scelerisque sit amet et ligula. In
+          consectetur massa eu lorem tempor, at convallis.
+        </p>
+      </div>
+
+      <div id="tab-3" class="tab-content">
+        <h2>Tab 3 Title</h2>
+
+        <p>
+          Vestibulum eu arcu nec erat vestibulum fermentum. Sed suscipit ligula
+          ut elit facilisis, id tempor urna facilisis.
+        </p>
+
+        <p>
+          Aliquam erat volutpat. Vivamus interdum urna non mauris ultricies, non
+          pretium odio iaculis. Integer in semper nisl.
+        </p>
+
+        <p>
+          Proin viverra turpis eget massa tincidunt, at varius risus molestie.
+          Nam non turpis sed enim suscipit viverra.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
