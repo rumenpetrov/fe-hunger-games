@@ -1,0 +1,55 @@
+---
+index: 6
+isDraft: true
+title: 'Hero section with mouse movement parallax effect'
+description: ''
+pubDate: 'Aug 01 2024'
+heroImage: '/blog-placeholder-2.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Add hero section at the top of your page with at least one title as text content, one image behind it and call to action button
+  * Loosely follow the design but feel free to style, add or remove any extra elements as you please
+  * Add parallax effect to one or more elements of the hero section
+  * Add at least one h1 title to the page
+  * Add at least one h2 title to the page
+  * Add at least three paragraph texts to the page
+  * <Special /> Use mouse position for your parallax effect
+</Section>
+
+<Section>
+  ### Design preview
+  ![blog placeholder](/fe-hunger-games/challenge-resources/parallax-mouse-move.gif)
+</Section>
+
+<Section>
+  #### Resources
+  * [3d parallax effect by moving mouse using html/css](https://dev.to/webdiscus/3d-parallax-effect-by-moving-mouse-using-htmlcss-7b2)
+  * [Free images](https://unsplash.com/)
+</Section>
+
+<Section>
+  #### Learn more
+  * [prefers-reduced-motion](https://web.dev/articles/prefers-reduced-motion)
+  * [3d game menu](https://web.dev/articles/building/a-3d-game-menu-component)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>
