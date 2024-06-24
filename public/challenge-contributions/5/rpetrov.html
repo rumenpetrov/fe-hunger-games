@@ -1,11 +1,200 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 5</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+
+      --space-base: 8px;
+      --palette-background: white;
+      --palette-foreground: #111;
+
+      --scrollbar-color-thumb: color-mix(in oklab, currentColor 25%, var(--palette-background));
+      --scrollbar-color-track: transparent;
+      --scrollbar-width: thin;
+      --scrollbar-width-legacy: 10px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --palette-background: #111;
+        --palette-foreground: white;
+      }
+    }
+
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      line-height: 1;
+      color: var(--palette-foreground)
+    }
+
+    ::selection {
+      background-color: color-mix(in oklab, currentColor 25%, var(--palette-background));
+    }
+
+    /* Modern browsers with `scrollbar-*` support */
+    @supports (scrollbar-width: auto) {
+      * {
+        scrollbar-color: var(--scrollbar-color-thumb) var(--scrollbar-color-track);
+        scrollbar-width: var(--scrollbar-width);
+      }
+    }
+
+    /* Legacy browsers with `::-webkit-scrollbar-*` support */
+    @supports selector(::-webkit-scrollbar) {
+      *::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-color-thumb);
+      }
+      *::-webkit-scrollbar-track {
+        background: var(--scrollbar-color-track);
+      }
+      *::-webkit-scrollbar {
+        max-width: var(--scrollbar-width-legacy);
+        max-height: var(--scrollbar-width-legacy);
+      }
+    }
+
+    .header {
+      padding: calc(var(--space-base) * 2) 0;
+      border-bottom: 1px solid color-mix(in oklab, currentColor 10%, var(--palette-background));
+    }
+    .header__slogan {
+      padding: 0;
+      font-weight: bold;
+    }
+
+    .wrapper {
+      box-sizing: border-box;
+      max-width: 90ch;
+      padding: 0 calc(var(--space-base) * 2);
+      margin: 0 auto;
+    }
+
+    .menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: var(--space-base) 0;
+      background-color: color-mix(in oklab, currentColor 10%, var(--palette-background));
+    }
+
+    @media screen and (min-width: 768px) {
+      .menu {
+        position: relative;
+      }
+    }
+
+    .menu__list {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      overflow: auto;
+      display: flex;
+      margin: 0 calc(var(--space-base) * -1);
+    }
+
+    .menu__list-item {
+      margin: 0 calc(var(--space-base) / 2);
+    }
+
+    .menu__list-item a {
+      display: block;
+      padding: var(--space-base);
+      border-radius: var(--space-base);
+      text-decoration: none;
+      color: currentColor;
+    }
+
+    .menu__list-item--active a,
+    .menu__list-item a:hover {
+      background-color: color-mix(in oklab, currentColor 20%, var(--palette-background));
+    }
+
+    main {
+      padding: var(--space-base) 0 calc(var(--space-base) * 6);
+    }
+
+    article {
+      overflow: hidden;
+      text-align: justify;
+    }
+
+    article p {
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <header class="header">
+    <div class="wrapper">
+      <div class="header__content">
+        <p class="header__slogan">Scrollable navigation</p>
+      </div>
+    </div>
+  </header>
+  <div class="menu__pad"></div>
+  <nav class="menu">
+    <div class="wrapper">
+      <ol class="menu__list">
+        <li class="menu__list-item menu__list-item--active">
+          <a href="#">Home</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">News</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Contacts</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">About</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Support</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Blog</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Tools</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Logo</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Friends</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Partners</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">People</a>
+        </li>
+        <li class="menu__list-item">
+          <a href="#">Work</a>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrapper">
+      <article>
+        <h1>Lorem, ipsum dolor.</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta pariatur commodi error? Dolorum provident magni dignissimos dolorem, repudiandae assumenda dicta sint sed distinctio reprehenderit illo deserunt quos voluptates, nihil corporis nulla reiciendis id vel nemo amet debitis fugit, harum unde. Delectus adipisci repellat odit. Nihil quisquam corrupti quasi enim iste maiores incidunt adipisci voluptas deleniti quis corporis, quos architecto illum laboriosam nostrum! Illum necessitatibus culpa omnis consequatur, officiis adipisci provident praesentium illo assumenda a minima laudantium voluptatibus iste repellat unde atque impedit dolores, ad in rerum voluptatum molestias nesciunt sit voluptas! Assumenda, corrupti delectus. Molestias cumque omnis, atque temporibus expedita quia totam excepturi distinctio quod consectetur similique dicta deleniti quos magnam harum mollitia, aut commodi ipsam laudantium. Perspiciatis consequuntur illum fuga praesentium quidem recusandae, officia perferendis. Explicabo consectetur illo libero culpa a dicta velit adipisci officiis fugiat, asperiores voluptates maxime iure quidem, amet nisi qui tenetur quis reprehenderit mollitia deleniti ipsam consequuntur! Pariatur eum aut tempora aspernatur incidunt amet maiores repudiandae esse ipsum quaerat eveniet assumenda, molestiae laborum. Fugiat aut esse voluptas sed, eius soluta accusantium id veniam vel earum iusto minus beatae alias dolorum, iste eum molestias nihil odit dolores! Corrupti eaque porro sit eum assumenda dicta velit aspernatur.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta pariatur commodi error? Dolorum provident magni dignissimos dolorem, repudiandae assumenda dicta sint sed distinctio reprehenderit illo deserunt quos voluptates, nihil corporis nulla reiciendis id vel nemo amet debitis fugit, harum unde. Delectus adipisci repellat odit. Nihil quisquam corrupti quasi enim iste maiores incidunt adipisci voluptas deleniti quis corporis, quos architecto illum laboriosam nostrum! Illum necessitatibus culpa omnis consequatur, officiis adipisci provident praesentium illo assumenda a minima laudantium voluptatibus iste repellat unde atque impedit dolores, ad in rerum voluptatum molestias nesciunt sit voluptas! Assumenda, corrupti delectus. Molestias cumque omnis, atque temporibus expedita quia totam excepturi distinctio quod consectetur similique dicta deleniti quos magnam harum mollitia, aut commodi ipsam laudantium. Perspiciatis consequuntur illum fuga praesentium quidem recusandae, officia perferendis. Explicabo consectetur illo libero culpa a dicta velit adipisci officiis fugiat, asperiores voluptates maxime iure quidem, amet nisi qui tenetur quis reprehenderit mollitia deleniti ipsam consequuntur! Pariatur eum aut tempora aspernatur incidunt amet maiores repudiandae esse ipsum quaerat eveniet assumenda, molestiae laborum. Fugiat aut esse voluptas sed, eius soluta accusantium id veniam vel earum iusto minus beatae alias dolorum, iste eum molestias nihil odit dolores! Corrupti eaque porro sit eum assumenda dicta velit aspernatur.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta pariatur commodi error? Dolorum provident magni dignissimos dolorem, repudiandae assumenda dicta sint sed distinctio reprehenderit illo deserunt quos voluptates, nihil corporis nulla reiciendis id vel nemo amet debitis fugit, harum unde. Delectus adipisci repellat odit. Nihil quisquam corrupti quasi enim iste maiores incidunt adipisci voluptas deleniti quis corporis, quos architecto illum laboriosam nostrum! Illum necessitatibus culpa omnis consequatur, officiis adipisci provident praesentium illo assumenda a minima laudantium voluptatibus iste repellat unde atque impedit dolores, ad in rerum voluptatum molestias nesciunt sit voluptas! Assumenda, corrupti delectus. Molestias cumque omnis, atque temporibus expedita quia totam excepturi distinctio quod consectetur similique dicta deleniti quos magnam harum mollitia, aut commodi ipsam laudantium. Perspiciatis consequuntur illum fuga praesentium quidem recusandae, officia perferendis. Explicabo consectetur illo libero culpa a dicta velit adipisci officiis fugiat, asperiores voluptates maxime iure quidem, amet nisi qui tenetur quis reprehenderit mollitia deleniti ipsam consequuntur! Pariatur eum aut tempora aspernatur incidunt amet maiores repudiandae esse ipsum quaerat eveniet assumenda, molestiae laborum. Fugiat aut esse voluptas sed, eius soluta accusantium id veniam vel earum iusto minus beatae alias dolorum, iste eum molestias nihil odit dolores! Corrupti eaque porro sit eum assumenda dicta velit aspernatur.</p>
+      </article>
+    </div>
+  </main>
 </body>
 </html>
