@@ -1,3 +1,5 @@
+[![Deploy to GitHub Pages](https://github.com/rumenpetrov/fe-hunger-games/actions/workflows/deploy.yml/badge.svg)](https://github.com/rumenpetrov/fe-hunger-games/actions/workflows/deploy.yml)
+
 # FE hunger games
 Community-driven game focusing on front-end development, where participants collaborate to create the most polished code for simple UI blocks.
 
