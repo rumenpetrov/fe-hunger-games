@@ -1,11 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 5</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challange 5 - Horizontal Scroll Menu</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+      }
+
+      .menu-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #e10600;
+        white-space: nowrap;
+        padding: 10px;
+      }
+
+      .menu-bar__wrapper {
+        box-sizing: border-box;
+        max-width: 90ch;
+        margin: 0 auto;
+        display: flex;
+        overflow-x: auto;
+        padding: 0 0 10px 0;
+      }
+
+      .menu-bar__wrapper::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      .menu-bar__wrapper::-webkit-scrollbar-thumb {
+        background-color: #ffffff;
+        border-radius: 8px;
+      }
+
+      .menu-bar__item {
+        display: inline-block;
+        padding: 15px 20px;
+        margin: 0 5px;
+        color: white;
+        text-decoration: none;
+        flex-shrink: 0;
+        border-bottom-right-radius: 8px;
+        border-top-left-radius: 8px;
+      }
+
+      .menu-bar__item--active {
+        font-weight: 800;
+        border-right: 1px solid white;
+        border-bottom: 1px solid white;
+        border-bottom-right-radius: 8px;
+        border-top-left-radius: 8px;
+      }
+
+      .menu-bar__item:hover {
+        background-color: none;
+      }
+
+      @media (min-width: 768px) {
+        .menu-bar {
+          top: 0;
+          bottom: auto;
+          justify-content: center;
+        }
+
+        .menu-bar__item:hover {
+          background-color: salmon;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="menu-bar">
+      <div class="menu-bar__wrapper">
+        <a href="#" class="menu-bar__item menu-bar__item--active">Home 0</a>
+
+        <a href="#" class="menu-bar__item">Home 1</a>
+
+        <a href="#" class="menu-bar__item">Home 2</a>
+
+        <a href="#" class="menu-bar__item">Home 3</a>
+
+        <a href="#" class="menu-bar__item">Home 4</a>
+
+        <a href="#" class="menu-bar__item">Home 5</a>
+
+        <a href="#" class="menu-bar__item">Home 6</a>
+
+        <a href="#" class="menu-bar__item">Home 7</a>
+
+        <a href="#" class="menu-bar__item">Home 8</a>
+
+        <a href="#" class="menu-bar__item">Home 9</a>
+      </div>
+    </nav>
+  </body>
 </html>
