@@ -1,0 +1,60 @@
+---
+index: 7
+isDraft: true
+title: 'Responsive images in grid'
+description: 'Get the most out of situation where you just have bunch of inconsistent images.'
+pubDate: 'Sep 01 2024'
+heroImage: '/blog-placeholder-3.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Develop responsive grid with media cards using [the display grid property](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout)
+    * One column on mobile screens
+    * Four columns on desktop screens (>= 1280px)
+  * All cards in one row should have the same total height
+  * Every card should have a preview area and **optional** content (text) area
+    * The preview area should maintain 4:3 aspect ratio no matter the screen size
+    * The preview area should work with inconsistent image sizes (any width or height)
+    * The preview area should provide spacing between the image and the bounding box of the card
+    * Any images placed inside the preview area should maintain their own aspect ratio
+    * Any image smaller than the dimensions of the preview area should maintain his maximum width and height. (Make sure you add at least one small image)
+  * The design is meant to show an example of product grid with responsive images. You don't have to follow it, feel free to style, add or remove any extra elements
+  * <Special /> Be creative with the background of the preview area. Feel free to experiment with colors and effects to make the space around the image and the image itself look good.
+</Section>
+
+<Section>
+  ### Design preview
+  ![product list](/fe-hunger-games/challenge-resources/product-list.png)
+</Section>
+
+<Section>
+  #### Resources
+  * [Free images](https://unsplash.com/)
+</Section>
+
+<Section>
+  #### Learn more
+  * [Grid by example](https://gridbyexample.com/examples/)
+  * [Learn CSS Grid](https://learncssgrid.com/)
+  * [Responsive image ideas](https://web.dev/learn/design/responsive-images)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>

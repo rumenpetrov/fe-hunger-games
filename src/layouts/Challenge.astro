@@ -32,6 +32,10 @@ const { index, isDraft, title, description, pubDate, updatedDate, heroImage } = 
           </div>
 
           <h1>{isDraft && `[Draft]`} {index}. {title}</h1>
+
+          {description && (
+            <p>({description})</p>
+          )}
         </div>
 
         <div class="hero">
