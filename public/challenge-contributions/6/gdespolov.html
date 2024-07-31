@@ -1,11 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 6</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Challange 6 - Hero section with mouse movement parallax effect
+    </title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+        color: #e2e2e2;
+        background-color: #121212;
+      }
+      h1 {
+        margin: 0;
+        font-size: 2.986rem;
+      }
+      h2 {
+        margin: 0;
+        font-size: 2.488rem;
+      }
+      h6 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+      p {
+        margin: 0;
+        font-size: 1rem;
+      }
+      header {
+        height: 68px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .avatar {
+        border: 1px solid white;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        line-height: 40px;
+        text-align: center;
+      }
+      .hero-section {
+        perspective: 1000px;
+        overflow: hidden;
+      }
+      .hero-container {
+        height: 70vh;
+        min-height: 500px;
+        transform-style: preserve-3d;
+        transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+        transition: transform var(--transition);
+        will-change: transform;
+      }
+      .hero-background {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        background-size: cover;
+        background-position: center;
+        top: -5vw;
+        bottom: -5vw;
+        left: -5vw;
+        right: -5vw;
+        background-image: url("https://plus.unsplash.com/premium_photo-1686050878751-89499d28d153?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+      }
+      .hero-main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -5vw;
+        bottom: -5vw;
+        left: -5vw;
+        right: -5vw;
+        background-size: cover;
+        background-position: center;
+        transform: translateZ(250px) scale(0.8);
+        text-align: center;
+      }
+      .hero-title {
+        margin: 0 0 20px 0;
+        color: #fff;
+      }
+      .hero-subTitle {
+        margin: 0 0 20px 0;
+        color: #fff;
+      }
+      .cta {
+        padding: 10px;
+        border-radius: 8px;
+        border: 2px solid white;
+        color: #fff;
+        background-color: transparent;
+        text-transform: uppercase;
+        outline: none;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .cta:hover {
+        background-color: rgb(255 255 255 / 0.2);
+      }
+      .content-section {
+        margin: 20px 0;
+        padding: 0 20px;
+      }
+      .content-title {
+        margin: 0 0 10px 0;
+      }
+      .content-paragraph {
+        margin: 0 0 5px 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <p>SPACE APP</p>
+
+      <p class="avatar">G D</p>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-container">
+          <div class="hero-background"></div>
+
+          <div class="hero-main">
+            <div>
+              <h1 class="hero-title">Welcome to the SPACE</h1>
+
+              <h6 class="hero-subTitle">Experience the PARALLAX Effect</h6>
+
+              <a
+                class="cta"
+                href="https://github.com/despolov"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                View GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-section">
+        <h2 class="content-title">Space programs:</h2>
+
+        <p class="content-paragraph">Artemis Program</p>
+
+        <p class="content-paragraph">Lunar Gateway program</p>
+
+        <p class="content-paragraph">Journey to Mars program</p>
+
+        <p class="content-paragraph">Constellation program</p>
+
+        <p class="content-paragraph">International Space Station program</p>
+      </section>
+    </main>
+
+    <script>
+      document.addEventListener("mousemove", (e) => {
+        const root = document.documentElement;
+        const rotateX = (event.clientY - window.innerHeight / 2) * 0.01;
+        const rotateY = ((event.clientX - window.innerWidth / 2) * 0.01) / 2;
+
+        root.style.setProperty("--rotate-x", `${rotateX}deg`);
+        root.style.setProperty("--rotate-y", `${rotateY}deg`);
+      });
+    </script>
+  </body>
 </html>
