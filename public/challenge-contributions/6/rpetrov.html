@@ -1,11 +1,121 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 6</title>
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+    }
+    button {
+      border: 2px solid #000;
+      padding: 4px 8px;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 500;
+      background-color: transparent;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: rgba(0, 0, 0, .1);
+    }
+    .fancy {
+      background-color: #4158D0;
+      background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .scene {
+      --scene-height: 100vh;
+
+      box-sizing: border-box;
+      position: relative;
+      min-height: var(--scene-height);
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    .scene .content {
+      box-sizing: border-box;
+      min-height: var(--scene-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      font-size: clamp(1rem, 6vw, 4rem);
+      text-align: center;
+      padding: 2vw;
+      color: white;
+      background: radial-gradient(#708c8f, transparent);
+    }
+    .scene .content h1 {
+      max-width: 750px;
+      margin: 0 0 2rem;
+    }
+    .parallax {
+      transform: translate3d(-50%, -50%, 0) rotateX(var(--rotate-x, 0)) rotateY(var(--rotate-y, 0));
+      transition: transform 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+      will-change: transform;
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      display: block;
+      width: 130%;
+      height: 130%;
+      object-fit: cover;
+      filter: hue-rotate(120deg);
+    }
+    .wrapper {
+      width: 90vw;
+      max-width: 90ch;
+      margin: 0 auto;
+    }
+    main {
+      padding: 40px 0;
+    }
+  </style>
+  <script type="module">
+    const root = document.documentElement;
+
+    document.addEventListener('mousemove', (event) => {
+      const smoothMove = 0.04;
+      const rotateX = (event.clientY - window.innerHeight / 2) * smoothMove;
+      const rotateY = (event.clientX - window.innerWidth / 2) * -smoothMove / 2;
+
+      root.style.setProperty('--rotate-x', `${rotateX}deg`);
+      root.style.setProperty('--rotate-y', `${rotateY}deg`);
+    });
+  </script>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <div class="scene">
+    <img
+      loading="lazy"
+      class="parallax"
+      src="https://plus.unsplash.com/premium_photo-1705095787291-70d87945a2a9?q=80&w=2075&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+      alt="city"
+    >
+    <div class="content">
+      <h1>Just do it <span class="fancy">tomorrow</span>!</h1>
+
+      <button>Postpone now</button>
+    </div>
+  </div>
+
+  <main>
+    <div class="wrapper">
+      <h2>Hello</h2>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit facere cumque possimus ipsum perspiciatis provident tempore eveniet vero sunt nihil in ducimus neque, quia quo ab, eius distinctio veritatis voluptate, vel molestiae asperiores. Eos perferendis nobis voluptatibus neque rem obcaecati temporibus deleniti sed illo, error provident soluta totam corporis iusto sint, nemo saepe quia in repudiandae amet at a consequatur id ea? Nisi velit nihil architecto sunt laboriosam inventore corporis odit ad? Fugit assumenda culpa quia amet et odit excepturi, placeat ea itaque atque eligendi facere ratione quae aspernatur nemo, tempore illum! Vel alias quibusdam neque ratione totam, labore eos quos velit minus sit debitis beatae, cumque ex laborum dignissimos aliquid ullam nesciunt necessitatibus obcaecati ab modi? Atque suscipit quibusdam saepe laudantium, cupiditate quae modi. In, autem quisquam, totam beatae facere veniam molestiae, aliquid repellat nulla consequatur aliquam quis explicabo ullam! Pariatur ullam quas quidem voluptatem nisi veritatis! Modi sequi voluptates, sunt reprehenderit alias beatae culpa, similique quod error minima autem eos laboriosam reiciendis officiis quos vero corrupti! Necessitatibus, et. Iusto fuga perferendis, nesciunt molestias delectus mollitia ratione tenetur rem aliquid incidunt alias dolores. Illum earum non, amet possimus deserunt, debitis porro exercitationem corrupti minus optio ipsa rerum nostrum!</p>
+
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam sit facere cumque possimus ipsum perspiciatis provident tempore eveniet vero sunt nihil in ducimus neque, quia quo ab, eius distinctio veritatis voluptate, vel molestiae asperiores. Eos perferendis nobis voluptatibus neque rem obcaecati temporibus deleniti sed illo, error provident soluta totam corporis iusto sint, nemo saepe quia in repudiandae amet at a consequatur id ea? Nisi velit nihil architecto sunt laboriosam inventore corporis odit ad? Fugit assumenda culpa quia amet et odit excepturi, placeat ea itaque atque eligendi facere ratione quae aspernatur nemo, tempore illum! Vel alias quibusdam neque ratione totam, labore eos quos velit minus sit debitis beatae, cumque ex laborum dignissimos aliquid ullam nesciunt necessitatibus obcaecati ab modi? Atque suscipit quibusdam saepe laudantium, cupiditate quae modi. In, autem quisquam, totam beatae facere veniam molestiae, aliquid repellat nulla consequatur aliquam quis explicabo ullam! Pariatur ullam quas quidem voluptatem nisi veritatis! Modi sequi voluptates, sunt reprehenderit alias beatae culpa, similique quod error minima autem eos laboriosam reiciendis officiis quos vero corrupti! Necessitatibus, et. Iusto fuga perferendis, nesciunt molestias delectus mollitia ratione tenetur rem aliquid incidunt alias dolores. Illum earum non, amet possimus deserunt, debitis porro exercitationem corrupti minus optio ipsa rerum nostrum!</p>
+    </div>
+  </main>
 </body>
 </html>
