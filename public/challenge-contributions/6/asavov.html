@@ -55,26 +55,26 @@
         class="hero-section_button"
       />
     </div>
+    <script>
+      const root = document.documentElement;
+      const heroSection = document.querySelector(".hero-section");
+
+      document.addEventListener("mousemove", (event) => {
+        const smoothMove = 0.01;
+        const rotateX = (event.clientY - window.innerHeight / 2) * smoothMove;
+        const rotateY =
+          ((event.clientX - window.innerWidth / 2) * -smoothMove) / 2;
+
+        root.style.setProperty("--rotate-x", `${rotateX}deg`);
+        root.style.setProperty("--rotate-y", `${rotateY}deg`);
+        heroSection.style.setProperty("border-radius", "15px");
+      });
+
+      document.addEventListener("mouseleave", (event) => {
+        root.style.setProperty("--rotate-x", `${0}deg`);
+        root.style.setProperty("--rotate-y", `${0}deg`);
+        heroSection.style.setProperty("border-radius", "0");
+      });
+    </script>
   </body>
-  <script>
-    const root = document.documentElement;
-    const heroSection = document.querySelector(".hero-section");
-
-    document.addEventListener("mousemove", (event) => {
-      const smoothMove = 0.01;
-      const rotateX = (event.clientY - window.innerHeight / 2) * smoothMove;
-      const rotateY =
-        ((event.clientX - window.innerWidth / 2) * -smoothMove) / 2;
-
-      root.style.setProperty("--rotate-x", `${rotateX}deg`);
-      root.style.setProperty("--rotate-y", `${rotateY}deg`);
-      heroSection.style.setProperty("border-radius", "15px");
-    });
-
-    document.addEventListener("mouseleave", (event) => {
-      root.style.setProperty("--rotate-x", `${0}deg`);
-      root.style.setProperty("--rotate-y", `${0}deg`);
-      heroSection.style.setProperty("border-radius", "0");
-    });
-  </script>
 </html>
