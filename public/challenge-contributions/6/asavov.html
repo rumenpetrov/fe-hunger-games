@@ -1,11 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 6</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 6</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: "Courier New", Courier, monospace;
+        box-sizing: border-box;
+        color: aliceblue;
+        perspective: 800px;
+        overflow: hidden;
+        background-image: url("https://images.unsplash.com/photo-1694607957563-bdf4fdaca6a4?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-position: center;
+      }
+      .hero-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-image: url("https://images.unsplash.com/photo-1722578671593-0490f089bec1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        background-position: center;
+        width: 100vw;
+        height: 100vh;
+        transform: rotateX(var(--rotate-x)) rotateY(var(--rotate-y));
+        transform-style: preserve-3d;
+        transition: transform 1.5s cubic-bezier(0.05, 0.5, 0, 1);
+        will-change: transform;
+      }
+      .hero-section_button {
+        padding: 10px;
+        border-radius: 15px;
+        background-color: darkgrey;
+        cursor: pointer;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero-section">
+      <h1>Omaha beach</h1>
+      <h2>Beach with rich history</h2>
+      <p>Top beach</p>
+      <p>Top parties</p>
+      <p>Top History</p>
+      <input
+        type="button"
+        onclick="window.open('https://en.wikipedia.org/wiki/Omaha_Beach', '_blank');"
+        value="See the history"
+        class="hero-section_button"
+      />
+    </div>
+  </body>
+  <script>
+    const root = document.documentElement;
+    const heroSection = document.querySelector(".hero-section");
+
+    document.addEventListener("mousemove", (event) => {
+      const smoothMove = 0.01;
+      const rotateX = (event.clientY - window.innerHeight / 2) * smoothMove;
+      const rotateY =
+        ((event.clientX - window.innerWidth / 2) * -smoothMove) / 2;
+
+      root.style.setProperty("--rotate-x", `${rotateX}deg`);
+      root.style.setProperty("--rotate-y", `${rotateY}deg`);
+      heroSection.style.setProperty("border-radius", "15px");
+    });
+
+    document.addEventListener("mouseleave", (event) => {
+      root.style.setProperty("--rotate-x", `${0}deg`);
+      root.style.setProperty("--rotate-y", `${0}deg`);
+      heroSection.style.setProperty("border-radius", "0");
+    });
+  </script>
 </html>
