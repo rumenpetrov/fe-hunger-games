@@ -1,0 +1,60 @@
+---
+index: 8
+isDraft: true
+title: 'Hello web components'
+description: ''
+pubDate: 'Oct 01 2024'
+heroImage: '/blog-placeholder-4.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Develop [custom element](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements). Make it as simple or as complex as you like.
+  * Isolate your element by using a [shadow DOM](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements#examples). No styles should be leaking out of your web component.
+  * Write it in plain JS. (Don't use 3th-party libraries like [Lit](https://lit.dev/))
+  * <Special /> Use at least 1 [CSS custom variable](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties) to style something inside your web component from outside of the shadow DOM
+</Section>
+
+<Section>
+  ### Design preview
+  Personal preference
+</Section>
+
+<Section>
+  #### Resources
+  * [Web components MDN](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)
+  * [Learn Web Components In 25 Minutes Video](https://www.youtube.com/watch?v=2I7uX8m0Ta0)
+</Section>
+
+<Section>
+  #### Learn more
+  * [Slots](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot)
+  * [CSS ::host](https://developer.mozilla.org/en-US/docs/Web/CSS/:host_function)
+  * [CSS ::part](https://developer.mozilla.org/en-US/docs/Web/CSS/::part)
+  * [CSS adoptedStyleSheets](https://developer.mozilla.org/en-US/docs/Web/API/ShadowRoot/adoptedStyleSheets)
+  * [Declarative Shadow DOM](https://web.dev/articles/declarative-shadow-dom)
+  * [Open Web components](https://open-wc.org/)
+  * [Going Buildless: ES Modules](https://modern-web.dev/guides/going-buildless/es-modules/)
+  * [Webcomponents.org](https://www.webcomponents.org/)
+  * [Web components in Google IO 2019](https://web.dev/articles/web-components-io-2019)
+  * [Demystifying web components](https://jamesiv.es/blog/frontend/javascript/2024/03/26/demystifying-web-components)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>

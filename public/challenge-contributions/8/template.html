@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Challenge 8</title>
+
+  <script type="module">
+    class GiveMeAName extends HTMLElement {
+      constructor() {
+        super();
+
+        this.render();
+      }
+
+      render() {
+        this.innerHTML = `
+          <style>
+            h2 {
+              display: block;
+              background-color: lightgray;
+              padding: 10px;
+            }
+          </style>
+          <h2>Hello, I'm a web component!</h2>
+        `;
+      }
+    }
+
+    customElements.define('give-me-a-name', GiveMeAName);
+  </script>
+</head>
+<body>
+  <h1>This is the template HTML file for this challenge.</h1>
+
+  <give-me-a-name></give-me-a-name>
+</body>
+</html>
