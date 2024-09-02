@@ -1,11 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 7</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 7</title>
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .grid-container {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: 1fr;
+        padding: 10px;
+      }
+
+      @media (min-width: 1280px) {
+        .grid-container {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      .card {
+        background-color: #fff;
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .preview-area {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        background-color: #e0e0e0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .preview-area img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .content-area {
+        padding: 20px;
+        text-align: center;
+        flex-grow: 1;
+      }
+
+      .preview-area {
+        border-bottom: 5px solid #007bff;
+      }
+
+      .card:hover .preview-area {
+        background-color: #007bff;
+        transition: background-color 0.3s ease;
+      }
+
+      .card:hover .preview-area img {
+        filter: brightness(1.2);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="card">
+        <div class="preview-area">
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1724963475892-a3274091955e?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Image 1"
+          />
+        </div>
+        <div class="content-area">
+          <h3>Product 1</h3>
+          <p>Description for product 1.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview-area">
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1725067807346-7340abf76b0d?q=80&w=2068&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Image 2"
+          />
+        </div>
+        <div class="content-area">
+          <h3>Product 2</h3>
+          <p>Description for product 2.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview-area">
+          <img
+            loading="lazy"
+            src="https://images.unsplash.com/photo-1724747891638-68862b7b3165?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Image 3"
+          />
+        </div>
+        <div class="content-area">
+          <h3>Product 3</h3>
+          <p>Description for product 3.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="preview-area">
+          <img
+            loading="lazy"
+            src="https://plus.unsplash.com/premium_photo-1720886696626-c7a35ab957d7?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+            alt="Image 4"
+          />
+        </div>
+        <div class="content-area">
+          <h3>Product 4</h3>
+          <p>Description for product 4.</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
