@@ -1,0 +1,75 @@
+---
+index: 9
+isDraft: true
+title: 'Know your forms'
+description: ''
+pubDate: 'Nov 01 2024'
+heroImage: '/blog-placeholder-1.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Develop HTML form UI which includes, at least, the following attributes
+    * Form title
+    * Date field
+    * Time field
+    * Phone number field
+    * Password field
+    * Email field
+    * Range selection field
+    * Color selection field
+    * Single value choice field (select) with option groups (optgroup)
+    * Multiple value choice field (select)
+    * Autocomplete field (datalist)
+    * Long text field (textarea)
+    * Agree with terms and conditions field
+    * Radio selection fields (at least 2 options)
+    * Submit button
+  * At least two fields have to be displayed inline in two separate columns (50% width each)
+  * At least two groups/sections of fields with dedicated title which describes them
+  * Don't use 3th party plugins/libraries
+  * The design is meant to show a form example. You don't have to follow it, feel free to style, add or remove any extra elements
+  * <Special /> Add editable element using the "[contenteditable](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)" attribute
+</Section>
+
+<Section>
+  ### Design preview
+  ![form](/fe-hunger-games/challenge-resources/form.png)
+</Section>
+
+<Section>
+  #### Resources
+  * [optgroup MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup)
+  * [range MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range)
+  * [tel MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/tel)
+  * [date MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date)
+  * [time MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time)
+  * [multiple attribute MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple)
+  * [datalist MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
+  * [contenteditable MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)
+</Section>
+
+<Section>
+  #### Learn more
+  * [Learn forms web.dev](https://web.dev/learn/forms)
+  * [Learn forms MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>
