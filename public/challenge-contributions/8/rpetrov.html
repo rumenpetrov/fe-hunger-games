@@ -1,38 +1,147 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Challenge 8</title>
 
   <script type="module">
-    class GiveMeAName extends HTMLElement {
+    class RMessage extends HTMLElement {
       constructor() {
         super();
 
+        this.template = document.getElementById('r-message-template');
+
+        this.variant;
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(this.template.content.cloneNode(true));
+
         this.render();
+
+      }
+
+      static observedAttributes = ['variant'];
+
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'variant' && oldValue !== newValue) {
+          this.variant = newValue;
+
+          this.render();
+        }
       }
 
       render() {
-        this.innerHTML = `
-          <style>
-            h2 {
-              display: block;
-              background-color: lightgray;
-              padding: 10px;
+        this.shadowRoot.innerHTML = "";
+
+        this.shadowRoot.innerHTML = this.interpolate(this.template.innerHTML, {
+          copywright: "© 2024",
+          backgroundColor: this.getVariantColor().backgroundColor,
+          color: this.getVariantColor().color,
+        });
+      }
+
+      // Replace placeholders with values in the mark-up string
+      interpolate(htmlAsText, params) {
+        let names = Object.keys(params);
+        let values = Object.values(params);
+
+        return new Function(...names, `return \`${htmlAsText}\`;`)(...values);
+      }
+
+      getVariantColor() {
+        switch(this.variant) {
+          case 'success': {
+            return {
+              backgroundColor: 'lime',
+              color: 'var(--_r-message-color)',
+            };
+          }
+
+          case 'error': {
+            return {
+              backgroundColor: 'red',
+              color: '#fff',
+            };
+          }
+
+          default: {
+            return {
+              backgroundColor: 'var(--_r-message-background-color)',
+              color: 'var(--_r-message-color)',
             }
-          </style>
-          <h2>Hello, I'm a web component!</h2>
-        `;
+          }
+        }
       }
     }
 
-    customElements.define('give-me-a-name', GiveMeAName);
+    customElements.define('r-message', RMessage);
   </script>
+
+  <style>
+    body {
+      font-size: 20px;
+      color: goldenrod;
+    }
+    h1 {
+      color: darkgoldenrod;
+    }
+
+    r-message {
+      --r-message-space: 10px 20px;
+
+      margin: 0 10px 20px;
+    }
+
+    span {
+      color: red;
+    }
+  </style>
 </head>
 <body>
-  <h1>This is the template HTML file for this challenge.</h1>
+  <h1>Lorem ipsum dolor sit amet.</h1>
 
-  <give-me-a-name></give-me-a-name>
+  <p>Lorem ipsum, dolor sit <span>amet consectetur adipisicing elit.</span> Deleniti, nemo expedita animi totam aspernatur, eveniet, nam excepturi quo consequatur doloribus repellendus.</p>
+
+  <template id="r-message-template">
+    <style>
+      :host {
+        --_r-message-space: var(--r-message-space, 8px);
+        --_r-message-background-color: var(--r-message-background-color, #dedede);
+        --_r-message-color: var(--r-message-color, #333);
+
+        display: inline-block;
+        border-radius: 4px;
+        padding: var(--_r-message-space);
+        background-color: var(--_r-message-background-color);
+        background-color: ${backgroundColor};
+      }
+
+      ::part(root) {
+        display: inline-block;
+        font-size: 16px;
+        color: var(--_r-message-color);
+        color: ${color};
+      }
+
+      /* This will inherit the color from the host document */
+      .copy {
+        font-size: 12px;
+        line-height: 1.2;
+      }
+    </style>
+    <span part="root"><slot></slot></span>
+    <small class="copy">(${copywright})</small>
+  </template>
+
+  <r-message variant="success">This is a success message.</r-message>
+
+  <r-message variant="error">This is an error message.</r-message>
+
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, nemo expedita animi totam aspernatur, eveniet, nam excepturi quo consequatur doloribus repellendus.</p>
+
+  <r-message>This is an unknown message.</r-message>
+
+  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti, nemo expedita animi totam aspernatur, eveniet, nam excepturi quo consequatur doloribus repellendus.</p>
 </body>
 </html>
