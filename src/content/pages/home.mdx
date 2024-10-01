@@ -3,6 +3,10 @@ type: 'text'
 title: 'FE hunger games'
 ---
 import Section from '@src/components/Section.astro';
+import { LeaderboardEntry } from '@src/consts';
+
+export const asavov = new LeaderboardEntry({ wins: 2, mvp: 2 });
+export const gdespolov = new LeaderboardEntry({ wins: 5, mvp: 5 });
 
 <Section>
   ## What is this?
@@ -18,8 +22,8 @@ import Section from '@src/components/Section.astro';
 <Section>
   ## Leaderboard
 
-  | Name            | Wins        | MVP | Suggested challenges | Total (pts.) |
-  | --------------- | ----------- | --- | -------------------- | ------------ |
-  | Alexander Savov | 2           | 2   | 0                    | 8            |
-  | Georgi Despolov | 5           | 5   | 0                    | 20           |
+  | Name            | Wins             | MVP             | Suggested challenges | Total (pts.)            |
+  | --------------- | ---------------- | --------------- | -------------------- | ----------------------- |
+  | Alexander Savov | {asavov.wins}    | {asavov.mvp}    | 0                    | {asavov.totalPoints}    |
+  | Georgi Despolov | {gdespolov.wins} | {gdespolov.mvp} | 0                    | {gdespolov.totalPoints} |
 </Section>
