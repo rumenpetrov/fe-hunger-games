@@ -1,11 +1,18 @@
 ---
 const { index, name } = Astro.props;
 ---
+
 <div class="root">
-  <iframe src={`${import.meta.env.BASE_URL}challenge-contributions/${index}/${name}.html`} class="preview"></iframe>
+  <iframe
+    src={`${import.meta.env.BASE_URL}challenge-contributions/${index}/${name}.html`}
+    class="preview"></iframe>
 
   <div class="actions">
-    <a href={`${import.meta.env.BASE_URL}/challenge-contributions/${index}/${name}.html`}>Go to {name}.html</a>
+    <a
+      href={`${import.meta.env.BASE_URL}challenge-contributions/${index}/${name}.html`}
+      target="_blank"
+      rel="noopener noreferrer">Go to {name}.html</a
+    >
   </div>
 </div>
 
