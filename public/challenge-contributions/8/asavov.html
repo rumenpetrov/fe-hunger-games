@@ -1,38 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 8</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 8</title>
+    <script type="module">
+      class CustomResizableImage extends HTMLElement {
+        constructor() {
+          super();
+          const shadow = this.attachShadow({ mode: "open" });
+          const template = document.createElement("template");
+          template.innerHTML = `
+        <style>
+          :host {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ccc;
+            user-select: none;
+            width: 300px;
+            height: 300px;
+          }
 
-  <script type="module">
-    class GiveMeAName extends HTMLElement {
-      constructor() {
-        super();
+          img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+          }
 
-        this.render();
+          .resize-handle {
+            position: absolute;
+            bottom: var(--resizable-handle-position);
+            right: var(--resizable-handle-position);
+            width: var(--resizable-handle-dimention);
+            height: var(--resizable-handle-dimention);
+            background-color: rgba(0, 0, 0, 0.5);
+            cursor: se-resize;
+          }
+        </style>
+        <img src="https://images.unsplash.com/photo-1727774477390-2c1d534a28e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Resizable Image" />
+        <div class="resize-handle"></div>
+      `;
+
+          shadow.appendChild(template.content.cloneNode(true));
+          shadow.host.style.setProperty("--resizable-handle-dimention", "20px");
+          shadow.host.style.setProperty("--resizable-handle-position", "0");
+
+          this.isResizing = false;
+          this.image = shadow.querySelector("img");
+          this.handle = shadow.querySelector(".resize-handle");
+          this.initResize();
+        }
+
+        initResize() {
+          this.handle.addEventListener("mousedown", (e) => this.onMouseDown(e));
+          document.addEventListener("mousemove", (e) => this.onMouseMove(e));
+          document.addEventListener("mouseup", () => this.onMouseUp());
+        }
+
+        onMouseDown(e) {
+          this.isResizing = true;
+          this.startWidth = this.offsetWidth;
+          this.startHeight = this.offsetHeight;
+          this.startX = e.clientX;
+          this.startY = e.clientY;
+        }
+
+        onMouseMove(e) {
+          if (!this.isResizing) return;
+
+          const width = this.startWidth + (e.clientX - this.startX);
+          const height = this.startHeight + (e.clientY - this.startY);
+
+          this.style.width = `${width}px`;
+          this.style.height = `${height}px`;
+        }
+
+        onMouseUp() {
+          this.isResizing = false;
+        }
       }
 
-      render() {
-        this.innerHTML = `
-          <style>
-            h2 {
-              display: block;
-              background-color: lightgray;
-              padding: 10px;
-            }
-          </style>
-          <h2>Hello, I'm a web component!</h2>
-        `;
-      }
-    }
-
-    customElements.define('give-me-a-name', GiveMeAName);
-  </script>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-
-  <give-me-a-name></give-me-a-name>
-</body>
+      customElements.define("custom-resizable-image", CustomResizableImage);
+    </script>
+  </head>
+  <body>
+    <custom-resizable-image></custom-resizable-image>
+  </body>
 </html>

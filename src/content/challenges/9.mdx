@@ -2,7 +2,7 @@
 index: 9
 isDraft: false
 title: 'Know your forms'
-description: ''
+description: 'The accessibility benefits from using native controls'
 pubDate: 'Nov 04 2024'
 heroImage: '/blog-placeholder-1.jpg'
 winner: 'TBA'
@@ -35,7 +35,9 @@ import Section from '@src/components/Section.astro';
   * At least two groups/sections of fields with dedicated title which describes them
   * Don't use 3th party plugins/libraries
   * The design is meant to show a form example. You don't have to follow it, feel free to style, add or remove any extra elements
-  * <Special /> Add editable element using the "[contenteditable](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)" attribute
+  * <Special /> Meet the following accessibility requirement:
+    * No "critical" or "serious" level issues on the axe dev tools extension
+    * No issues reported from the automated tests in the Accessibility Insights for Web extension
 </Section>
 
 <Section>
@@ -53,12 +55,17 @@ import Section from '@src/components/Section.astro';
   * [multiple attribute MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/multiple)
   * [datalist MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist)
   * [contenteditable MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/contenteditable)
+  * [Accessibility insights for web Chrome extension](https://chromewebstore.google.com/detail/accessibility-insights-fo/pbjjkligggfmakdaogkfomddhfmpjeni)
+  * [Axe dev tools Chrome extension](https://chromewebstore.google.com/detail/axe-devtools-web-accessib/lhdoppojpmngadmnindnejefpokejbdd)
 </Section>
 
 <Section>
   #### Learn more
   * [Learn forms web.dev](https://web.dev/learn/forms)
   * [Learn forms MDN](https://developer.mozilla.org/en-US/docs/Learn/Forms)
+  * [Aria patterns](https://www.w3.org/WAI/ARIA/apg/)
+  * [How to test UIs for accessibility](https://enterprise-accessibility.vercel.app/topics/accessible-uis/how-to-test-components)
+  * [Rules of aria](https://www.w3.org/TR/using-aria/)
 </Section>
 
 <Section>
