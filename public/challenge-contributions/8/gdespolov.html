@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 8</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 8 - fancy button</title>
 
-  <script type="module">
-    class GiveMeAName extends HTMLElement {
-      constructor() {
-        super();
-
-        this.render();
+    <style>
+      :root {
+        --button-bg-color: #0abab5;
+        --button-hover-bg-color: #06706d;
       }
+    </style>
 
-      render() {
-        this.innerHTML = `
-          <style>
-            h2 {
-              display: block;
-              background-color: lightgray;
-              padding: 10px;
+    <script type="module">
+      class FancyButton extends HTMLElement {
+        constructor() {
+          super();
+
+          const shadow = this.attachShadow({ mode: "open" });
+          const button = document.createElement("button");
+
+          button.textContent = this.getAttribute("label") || "Button";
+
+          const style = document.createElement("style");
+          style.textContent = `
+            button {
+                background-color: var(--button-bg-color, #ff5733);
+                color: white;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                font-size: 16px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
             }
-          </style>
-          <h2>Hello, I'm a web component!</h2>
-        `;
+
+            button:hover {
+                background-color: var(--button-hover-bg-color, #000000);
+            }
+          `;
+
+          shadow.appendChild(style);
+          shadow.appendChild(button);
+        }
       }
-    }
 
-    customElements.define('give-me-a-name', GiveMeAName);
-  </script>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
+      customElements.define("fancy-button", FancyButton);
+    </script>
+  </head>
 
-  <give-me-a-name></give-me-a-name>
-</body>
+  <body>
+    <fancy-button label="Click Me"></fancy-button>
+
+    <fancy-button
+      label="Custom Color Click Me"
+      style="--button-bg-color: #50c878; --button-hover-bg-color: #307848"
+    ></fancy-button>
+  </body>
 </html>
