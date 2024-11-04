@@ -1,11 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 9</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 9 - Registration Form</title>
+    <style>
+      :root {
+        --primary-color: #b5311b;
+        --primary-color-darken: #882514;
+        --text-color: #2b2b2b;
+        --border-color: #cccccc;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      @media (max-width: 600px) {
+        .form-row {
+          flex-direction: column;
+          gap: 0;
+        }
+      }
+
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+
+      .form-container {
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        color: var(--primary-color);
+        margin-bottom: 2rem;
+      }
+
+      .form-section {
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+      }
+
+      .form-section h2 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+      }
+
+      .form-row {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .form-column {
+        flex: 1;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+
+      input[type="radio"],
+      input[type="checkbox"] {
+        width: auto;
+        margin-right: 0.5rem;
+      }
+
+      .radio-group {
+        margin-bottom: 1rem;
+      }
+
+      .radio-label {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 1rem;
+      }
+
+      button {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+
+      button:hover {
+        background-color: var(--primary-color-darken);
+      }
+
+      .required {
+        color: #e63946;
+      }
+
+      select[multiple] {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Registration Form</h1>
+      <form id="registrationForm" novalidate>
+        <div class="form-section">
+          <h2>Personal Information</h2>
+          <div class="form-row">
+            <div class="form-column">
+              <div class="form-group">
+                <label for="email">Email <span class="required">*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  aria-required="true"
+                />
+              </div>
+            </div>
+            <div class="form-column">
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="password"
+              >Password <span class="required">*</span></label
+            >
+            <input
+              type="password"
+              id="password"
+              name="password"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="appointment-date">Preferred Date</label>
+            <input type="date" id="appointment-date" name="appointment-date" />
+          </div>
+
+          <div class="form-group">
+            <label for="appointment-time">Preferred Time</label>
+            <input type="time" id="appointment-time" name="appointment-time" />
+          </div>
+        </div>
+
+        <div class="form-section">
+          <h2>Preferences</h2>
+          <div class="form-group">
+            <label for="experience">Experience Level</label>
+            <select id="experience" name="experience">
+              <optgroup label="Beginner">
+                <option value="novice">Novice</option>
+                <option value="junior">Junior</option>
+              </optgroup>
+              <optgroup label="Intermediate">
+                <option value="mid">Mid-level</option>
+                <option value="senior">Senior</option>
+              </optgroup>
+              <optgroup label="Expert">
+                <option value="expert">Expert</option>
+                <option value="master">Master</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="interests">Areas of Interest (Multiple)</label>
+            <select id="interests" name="interests" multiple>
+              <option value="development">Development</option>
+              <option value="design">Design</option>
+              <option value="marketing">Marketing</option>
+              <option value="business">Business</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="skill-level">Skill Level (1-100)</label>
+            <input
+              type="range"
+              id="skill-level"
+              name="skill-level"
+              min="1"
+              max="100"
+              value="50"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="theme-color">Preferred Theme Color</label>
+            <input
+              type="color"
+              id="theme-color"
+              name="theme-color"
+              value="#E23D22"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" list="cities" />
+            <datalist id="cities">
+              <option value="New York"></option>
+              <option value="London"></option>
+              <option value="Tokyo"></option>
+              <option value="Paris"></option>
+              <option value="Berlin"></option>
+              <option value="Sofia"></option>
+            </datalist>
+          </div>
+
+          <div class="form-group">
+            <label for="comments">Additional Comments</label>
+            <textarea id="comments" name="comments" rows="4"></textarea>
+          </div>
+
+          <div class="form-group">
+            <fieldset>
+              <legend>Preferred Contact Method</legend>
+              <div class="radio-group">
+                <label class="radio-label">
+                  <input type="radio" name="contact" value="email" />
+                  Email
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="contact" value="phone" />
+                  Phone
+                </label>
+                <label class="radio-label">
+                  <input type="radio" name="contact" value="both" />
+                  Both
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="form-group">
+            <label class="radio-label">
+              <input
+                type="checkbox"
+                id="terms"
+                name="terms"
+                required
+                aria-required="true"
+              />
+              I agree to the terms and conditions
+            </label>
+          </div>
+        </div>
+
+        <button type="submit">Submit Registration</button>
+      </form>
+    </div>
+  </body>
 </html>
