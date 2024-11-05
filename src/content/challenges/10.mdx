@@ -1,0 +1,50 @@
+---
+index: 10
+isDraft: false
+title: 'Scroll to section'
+description: ''
+pubDate: 'Dec 01 2024'
+heroImage: '/blog-placeholder-0.jpg'
+winner: 'TBA'
+mvp: 'TBA'
+---
+import Special from '@src/components/Special.astro';
+import Winner from '@src/components/Winner.astro';
+import MVP from '@src/components/MVP.astro';
+import Section from '@src/components/Section.astro';
+
+<Section>
+  ## Requirements
+  * Header with navigation in it
+  * The navigation have at lest 3 links which scroll the user to different sections on the page
+  * Use only HTML and CSS
+  * <Special /> The scrolling effect is animated (smooth scroll)
+</Section>
+
+<Section>
+  ### Design preview
+  Personal preference
+</Section>
+
+<Section>
+  #### Resources
+  * [Smooth scroll](https://developer.mozilla.org/en-US/docs/Web/CSS/scroll-behavior)
+</Section>
+
+<Section>
+  #### Learn more
+  * [Scroll behavior CSS tricks](https://css-tricks.com/almanac/properties/s/scroll-behavior/)
+</Section>
+
+<Section>
+  ### Discussion topics
+  TBA
+</Section>
+
+<Winner>
+  <em>{frontmatter.winner}</em>
+</Winner>
+
+<MVP>
+  <em>{frontmatter.mvp}</em>
+</MVP>
