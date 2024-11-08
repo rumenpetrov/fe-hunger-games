@@ -53,6 +53,10 @@
       display: block;
       margin-bottom: 4px;
     }
+    label:has(+ :required)::after {
+      content: '*';
+      color: red;
+    }
     .choice label {
       display: inline;
       margin-bottom: 0;
