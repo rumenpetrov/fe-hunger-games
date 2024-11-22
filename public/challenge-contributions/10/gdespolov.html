@@ -1,11 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Challenge 10</title>
-</head>
-<body>
-  <h1>This is the template HTML file for this challenge.</h1>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Challenge 10 - Smooth Scroll Navigation</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: #333333;
+        padding: 1rem;
+        z-index: 1000;
+      }
+
+      nav a {
+        color: #ffffff;
+        text-decoration: none;
+        margin-right: 2rem;
+        transition: color 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        background-color: #444444;
+      }
+
+      nav a:hover {
+        color: #00ff9d;
+      }
+
+      section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        color: white;
+        padding-top: 50px;
+      }
+
+      #home {
+        background-color: #e74c3c;
+      }
+
+      #about {
+        background-color: #94ee94;
+      }
+
+      #contact {
+        background-color: #3498db;
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <a href="#home">Home</a>
+
+        <a href="#about">About</a>
+
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section id="home">Home Section</section>
+
+    <section id="about">About Section</section>
+
+    <section id="contact">Contact Section</section>
+  </body>
 </html>
